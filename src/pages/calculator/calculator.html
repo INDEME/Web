@@ -1,0 +1,77 @@
+<!--
+  Generated template for the CalculatorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+ <ion-toolbar>
+    <ion-title>
+      Investigación de Mercado
+    </ion-title>
+          
+      
+    <ion-buttons end>
+      <button ion-button (click)="goToHome()" icon-only color="royal">Mis encuestas</button>
+    </ion-buttons>
+      
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="calculator"></ion-icon>
+      </button>
+    </ion-buttons>
+      
+    <ion-buttons end>
+      <button ion-button (click)="goToUser()" icon-only color="royal">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+      
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
+    </ion-buttons>
+            
+      
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    
+    <ion-list inset>
+
+      <h4>Por favor ingrese el tamaño de la poblacion:</h4>
+      <ion-item>
+        <ion-label>Tamaño de la poblacion</ion-label>
+        <ion-input type="number"  name="poblacion" [(ngModel)]="poblacionValor" required></ion-input>
+      </ion-item>
+
+      <h4>Por favor ingrese el nivel de confianza</h4>
+      <ion-item>
+        <ion-label>Nivel de confianza</ion-label>
+        <ion-select [(ngModel)]="confianza">
+          <ion-option value="1.28">80%</ion-option>
+          <ion-option value="1.44">85%</ion-option>
+          <ion-option value="1.65">90%</ion-option>
+          <ion-option value="1.96">95%</ion-option>
+          <ion-option value="2.58">99%</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <h4>Por favor ingrese el margen de error:</h4>
+      <ion-item>
+        <ion-label>Margen de error</ion-label>
+        <ion-input type="number" name="error"  [(ngModel)]="errorValor"  required></ion-input>
+      </ion-item>
+        <button ion-button (click)="calcularMuestra()"  >Calcular</button>
+        <ion-item>
+          <ion-label>{{totalResultado}}</ion-label>
+        </ion-item>
+</ion-list>
+
+
+</ion-content>
