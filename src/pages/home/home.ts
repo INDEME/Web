@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CalculatorPage } from '../calculator/calculator';
 import { UserPage } from '../user/user';
-
+import { AuthSevice } from '../../services/auth/auth';
 
 @Component({
   selector: 'page-home',
@@ -10,11 +10,12 @@ import { UserPage } from '../user/user';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(public navCtrl: NavController, public auth: AuthSevice) {
+    
   }
 
     goToMath(){
+        console.log(this.auth.idUsuario);
         this.navCtrl.push(CalculatorPage);
     }
     
@@ -22,4 +23,7 @@ export class HomePage {
         this.navCtrl.push(UserPage);
     }
 
+    goOut(){
+        window.close();
+    }
 }

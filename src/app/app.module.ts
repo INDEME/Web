@@ -11,6 +11,9 @@ import { LoginPage } from '../pages/login/login';
 import { CalculatorPage } from '../pages/calculator/calculator';
 import { UserPage } from '../pages/user/user';
 
+import {HttpModule} from '@angular/http';
+import { AuthSevice } from '../services/auth/auth';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -19,10 +22,10 @@ import { UserPage } from '../pages/user/user';
     LoginPage,
     CalculatorPage,
     UserPage
-    
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -35,7 +38,8 @@ import { UserPage } from '../pages/user/user';
     UserPage
   ],
   providers: [
-    StatusBar,
+    StatusBar, 
+    AuthSevice,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
