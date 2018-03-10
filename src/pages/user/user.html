@@ -44,22 +44,21 @@
     
   <div class="center-things">
     <ion-icon name="contact"></ion-icon>
-    <p>Nombre del usuario</p>
+    <p><ion-label>{{nombreUsuario}}</ion-label></p>
     <h4>Cambia tu contraeña</h4>
 
   </div>
     <ion-list >
-
       <ion-item class="item item-block ">
-        <ion-input type="password" placeholder="Contraseña nueva"></ion-input>
+        <ion-input type="password" placeholder="Contraseña nueva" [(ngModel)]="contrasena"></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-input type="password" placeholder="Confirmar contraseña"></ion-input>
+        <ion-input type="password" placeholder="Confirmar contraseña" [(ngModel)]="contrasena2"></ion-input>
       </ion-item>
 
     </ion-list>
 
-    <button ion-button class="center-things">Guardar</button>
+    <button ion-button class="center-things" (click)="edit()">Guardar</button>
 
 </ion-content>
