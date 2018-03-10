@@ -22,22 +22,22 @@
         </ion-card-header>
         
         <ion-item>
-            <ion-input type="text" placeholder="Nombre completo"></ion-input>
+            <ion-input type="text" placeholder="Nombre completo"  [(ngModel)]="nombre"></ion-input>
         </ion-item>
         
          <ion-item>
-            <ion-input type="text" placeholder="Correo eletronico"></ion-input>
+            <ion-input type="email" placeholder="Correo eletronico"  [(ngModel)]="email"></ion-input>
         </ion-item>
          
         <ion-item>
-            <ion-input type="text" placeholder="Contraseña"></ion-input>
+            <ion-input type="text" placeholder="Contraseña"  [(ngModel)]="contrasena"></ion-input>
         </ion-item>
          
           <ion-item>
-            <ion-input type="text" placeholder="Confirmar contraseña"></ion-input>
+            <ion-input type="text" placeholder="Confirmar contraseña"  [(ngModel)]="contrasena2"></ion-input>
         </ion-item>
         
-        <button ion-button (click)="menssage()">Aceptar</button>
+        <button ion-button (click)="registrar()">Aceptar</button>
         
     </ion-card>
 

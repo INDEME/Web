@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { CalculatorPage } from '../calculator/calculator';
 import { UserPage } from '../user/user';
+import { LoginPage } from '../login/login';
 import { AuthSevice } from '../../services/auth/auth';
 
 @Component({
@@ -24,6 +25,6 @@ export class HomePage {
     }
 
     goOut(){
-        window.close();
+        this.navCtrl.push(LoginPage);
     }
 }
