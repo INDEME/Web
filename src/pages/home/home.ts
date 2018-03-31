@@ -15,6 +15,10 @@ export class HomePage {
     
   }
 
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad HomePage');
+  }
+
     goToMath(){
         console.log(this.auth.idUsuario);
         this.navCtrl.push(CalculatorPage);

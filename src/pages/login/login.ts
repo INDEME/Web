@@ -40,16 +40,11 @@ export class LoginPage {
     }
 
     login(){
-      console.log(this.nombre);
-      console.log(this.contrasena);
       this.http.get('https://apex.oracle.com/pls/apex/indeme/INgetuser/' + this.nombre +"/"+ this.contrasena).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
-      //console.log(this.resultado);
       if(data.items.length >= 1){
-        //this.presentToast("Acceso correcto.");
         this.auth.idUsuario = this.resultado[0].id_usuarios;
         this.auth.NombreUsuario = this.resultado[0].nombres;
-        //console.log( this.auth.idUsuario);
         this.navCtrl.push(HomePage);
       }
       else{

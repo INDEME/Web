@@ -11,8 +11,10 @@ import { LoginPage } from '../pages/login/login';
 import { CalculatorPage } from '../pages/calculator/calculator';
 import { UserPage } from '../pages/user/user';
 
-import {HttpModule} from '@angular/http';
+import { ConsultaProvider } from '../providers/consulta/consulta';
 import { AuthSevice } from '../services/auth/auth';
+
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import { AuthSevice } from '../services/auth/auth';
     StatusBar, 
     AuthSevice,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ConsultaProvider 
   ]
 })
 export class AppModule {}
