@@ -10,6 +10,13 @@ import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
 import { CalculatorPage } from '../pages/calculator/calculator';
 import { UserPage } from '../pages/user/user';
+import { SeePollPage } from '../pages/see-poll/see-poll';
+import { ResultpollsPage } from '../pages/resultpolls/resultpolls';
+import { LibraryPage } from '../pages/library/library';
+import { GraphicPage } from '../pages/graphic/graphic';
+import { DoPoollPage } from '../pages/do-pooll/do-pooll';
+import { CreateAskPage } from '../pages/create-ask/create-ask';
+import { CreatePage } from '../pages/create/create';
 
 import { ConsultaProvider } from '../providers/consulta/consulta';
 import { AuthSevice } from '../services/auth/auth';
@@ -23,7 +30,14 @@ import { HttpModule } from '@angular/http';
     SignupPage,
     LoginPage,
     CalculatorPage,
-    UserPage
+    UserPage,
+    SeePollPage,
+    ResultpollsPage,
+    LibraryPage,
+    GraphicPage,
+    DoPoollPage,
+    CreatePage,
+    CreateAskPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +51,14 @@ import { HttpModule } from '@angular/http';
     SignupPage,
     LoginPage,
     CalculatorPage,
-    UserPage
+    UserPage,
+    SeePollPage,
+    ResultpollsPage,
+    LibraryPage,
+    GraphicPage,
+    DoPoollPage,
+    CreatePage,
+    CreateAskPage
   ],
   providers: [
     StatusBar, 
