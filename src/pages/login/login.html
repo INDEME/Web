@@ -7,24 +7,33 @@
 </ion-header>
 
 <ion-content class="padding">
-    <ion-card class="card card-md">
-            
-        <ion-card-header>
-              
+  <ion-grid>
+    <ion-row center>
+      <ion-col>
+        <ion-card class="container">
+
+          <ion-card-header class="header-container">
+
             Inicia Sesión
-        </ion-card-header>
-        
-        <ion-item>
+          </ion-card-header>
+
+          <ion-item>
             <ion-input type="text" placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
-        </ion-item>
-        
-        <ion-item>
+          </ion-item>
+
+          <ion-item>
             <ion-input type="password" placeholder="Contraseña" [(ngModel)]="contrasena"></ion-input>
-        </ion-item>
-        
-        <button ion-button class="button button-md" (click)="login()">Aceptar</button>
-        
-    </ion-card>
-    <h1>¿No tienes cuenta con nosotros? </h1> 
-    <button ion-button (click)="goToSignUp()"  clear>Registrate!</button>
+          </ion-item>
+
+          <button ion-button class="boton" (click)="login()">Aceptar</button>
+          <h2 class="h2">¿No tienes cuenta con nosotros? </h2>
+          <button ion-button class="boton" (click)="goToSignUp()" clear>Registrate!</button>
+
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
 </ion-content>

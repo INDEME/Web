@@ -8,18 +8,17 @@ page-create-ask {
         margin: auto !important;
     }
     .imageEmocion {
-        width: 150px !important;
-        height: 150px !important;
+        width: auto !important;
+        height: 128px !important;
         display: block !important;
         margin: auto !important;
         background-color: #fff;
     }
     .icon {
         color: black;
-        width: 150px !important;
-        height: 150px !important;
         margin: auto;
         display: block;
+        zoom: 2.0;
     }
     .columns {
         text-align: center !important;
@@ -42,6 +41,20 @@ page-create-ask {
         padding: 0 12px;
         font-size: 2rem;
         font-weight: 500;
-        color: white;
+        color: white !important;
+    }
+    ion-input{
+        border-bottom: 1px solid;
+    }
+    
+    button{
+        text-align: center;
+        margin:auto;
+    }
+    .botones{
+        text-align: center;
+    }
+    ion-icon{
+       
     }
 }
