@@ -158,7 +158,7 @@ export class HomePage {
       console.log(this.Ask.length);
     }
     else{
-      this.presentToast("No puedes agregar más.")
+      this.presentToast("No puedes agregar más.");
     }
     }
     
