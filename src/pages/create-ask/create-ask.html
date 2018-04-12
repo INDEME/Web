@@ -3,6 +3,9 @@
     <ion-title class="toolbar-title toolbar-title-md">
       {{ item.title }}
     </ion-title>
+    <ion-buttons end class="bar-buttons">
+      <button ion-button (click)="goToPolls()" icon-only color="royal">Mis encuestas</button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
@@ -14,13 +17,13 @@
         <ion-label stacked>Ingrese su pregunta</ion-label>
         <ion-input type="text" [(ngModel)]="pregunta"></ion-input>
       </ion-item>
+ 
+
+      <button ion-button class="button" (click)="OnSave()">Agregar pregunta</button>
 
 
-      <button ion-button (click)="OnSave()">Agregar pregunta</button>
 
-
-
-      <div *ngIf="item.id==2 || item.id == 1">
+      <div padding *ngIf="item.id==2 || item.id == 1">
         <ion-label stacked>Ingrese sus respuestas</ion-label>
         <ion-input [disabled]="!isenabled" type="text" [(ngModel)]="answer" required></ion-input>
         <ion-grid>
@@ -50,11 +53,11 @@
         </ion-item>
       </div>
 
-      <div class="container" *ngIf="item.id == 5">
+      <div padding class="container" *ngIf="item.id == 5">
         <ion-img class="imageEmocion" src="../../assets/imgs/rating0.png"></ion-img>
       </div>
 
-      <div class="container" *ngIf="item.id == 6">
+      <div padding class="container" *ngIf="item.id == 6">
         <ion-grid>
           <ion-row>
             <ion-col>
@@ -67,7 +70,7 @@
         </ion-grid>
       </div>
 
-      <div *ngIf="item.id==21">
+      <div padding *ngIf="item.id==21">
         <ion-list radio-group [(ngModel)]="Unica">
           <ion-item>
             <ion-label>1</ion-label>
@@ -112,7 +115,7 @@
         </ion-list>
       </div>
 
-      <div *ngIf="item.id==4">
+      <div padding *ngIf="item.id==4">
         <ion-list radio-group [(ngModel)]="Unica">
           <ion-item>
             <ion-label>1</ion-label>
@@ -137,7 +140,7 @@
         </ion-list>
       </div>
 
-      <div *ngIf="item.id==22">
+      <div padding *ngIf="item.id==22">
         <ion-list radio-group [(ngModel)]="Unica">
           <ion-item>
             <ion-label>Si</ion-label>
@@ -150,14 +153,14 @@
         </ion-list>
       </div>
 
-      <div class="container" *ngIf="item.id == 23">
+      <div padding class="container" *ngIf="item.id == 23">
         <ion-range margin min="0" max="10" [(ngModel)]="saturation" color="secondary">
           <ion-label range-left>0</ion-label>
           <ion-label range-right>10</ion-label>
         </ion-range>
       </div>
 
-      <div *ngIf="item.id==2">
+      <div padding *ngIf="item.id==2">
         <button ion-button [disabled]="!isenabled" type="submit" (click)="SaveAnswer()">Guardar respuestas</button>
       </div>
 

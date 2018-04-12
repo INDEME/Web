@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AuthenticatePage } from '../pages/authenticate/authenticate';
 import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
 import { CalculatorPage } from '../pages/calculator/calculator';
@@ -27,6 +28,7 @@ import { HttpModule } from '@angular/http';
   declarations: [
     MyApp,
     HomePage,
+    AuthenticatePage,
     SignupPage,
     LoginPage,
     CalculatorPage,
@@ -48,6 +50,7 @@ import { HttpModule } from '@angular/http';
   entryComponents: [
     MyApp,
     HomePage,
+    AuthenticatePage,
     SignupPage,
     LoginPage,
     CalculatorPage,

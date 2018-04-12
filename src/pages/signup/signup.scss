@@ -1,6 +1,7 @@
 page-signup {
+    
     .login-content {
-        background-color: white;
+        background-color: #DDDD;
         .login-box {
             padding: 20px 20px 0px 20px;
             margin-top: 30px;
@@ -17,6 +18,21 @@ page-signup {
             border: 1px solid #ffffff;
             box-shadow: none !important;
         }
+        .boton{
+            margin: auto;
+            display: block;
+            border: round;
+            overflow: hidden;
+            height: 3.6rem;
+            font-size: 1.4rem;
+            font-weight: 50px;
+            text-transform: uppercase;
+            color: #fff;
+            background-color: #081936;
+            margin-bottom: 20px;
+            margin-top: 15px;
+        
+        }
         .signup-col {
             margin: 0px 16px 0px 16px;
             padding-bottom: 20px;
@@ -25,8 +41,8 @@ page-signup {
             border-bottom-color: #ffffff !important;
             box-shadow: none !important;
         }
-        .register-btn {
-            color: #757575;
+        .signup-col{
+            color:#ffffff;
             font-size: 0.8em;
         }
     }

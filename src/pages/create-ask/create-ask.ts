@@ -4,6 +4,7 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
 import { AuthSevice } from '../../services/auth/auth';
 import { ToastController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the CreateAskPage page.
@@ -35,15 +36,16 @@ export class CreateAskPage {
   isenabled:boolean=false;
 
   constructor(public navCtrl: NavController, private toastCtrl:ToastController, public alertCtrl:AlertController, public navParams: NavParams, public http:Http, public auth: AuthSevice) {
-    this.IdentificadorUsuario = this.auth.idUsuario;
+    this.IdentificadorUsuario = parseInt(localStorage.getItem("usuario"));
     this.item = navParams.data.item;
     this.id_tipo = this.navParams.data.item.id;
     this.asks = []; 
     this.askSlider = [];
+    console.log("Id usuario preguntas constructor: "+this.auth.idUsuario);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CreateAskPage');
+    console.log("Id usuario preguntas: "+this.auth.idUsuario);
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/' + this.IdentificadorUsuario ).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
@@ -59,7 +61,9 @@ export class CreateAskPage {
       
   }
 
-
+ goToPolls(){
+  this.navCtrl.push(HomePage);
+ }
 
   OnSave(){
     console.log(this.id_encuesta + "La encuesta es:");

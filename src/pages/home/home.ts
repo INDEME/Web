@@ -5,6 +5,7 @@ import { UserPage } from '../user/user';
 import { LoginPage } from '../login/login';
 import { AuthSevice } from '../../services/auth/auth';
 import { CreatePage } from '../create/create';
+import { AuthenticatePage } from '../authenticate/authenticate';
 import { ResultpollsPage } from '../resultpolls/resultpolls';
 import { DoPoollPage } from '../do-pooll/do-pooll';
 import { SeePollPage} from '../see-poll/see-poll';
@@ -21,7 +22,7 @@ import { CreateAskPage } from '../create-ask/create-ask';
   templateUrl: 'home.html'
 })
 export class HomePage {
-    usuario: number;
+  usuario: number;
   numero: number;
   AskNumber : number;
   contador: number;
@@ -32,17 +33,25 @@ export class HomePage {
   pollsUser: any [] = [];
 
   constructor(public navCtrl: NavController, private toastCtrl:ToastController, public navParams: NavParams, private alertCtrl: AlertController, public http:Http,  public auth: AuthSevice) {
-    
+    localStorage.getItem("token");
+    console.log("LocalStorage "+localStorage.getItem("token"));
+    this.usuario = parseInt(localStorage.getItem("usuario"));
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad PrincipalPage');
-    this.usuario = this.auth.idUsuario;
-    console.log(this.usuario + "hola");
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.auth.idUsuario).map(res => res.json()).subscribe(data => {
+    console.log("Usuario local Storage: "+localStorage.getItem("usuario"));
+    
+    console.log("USUARIO HOME: "+this.usuario);
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.usuario).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
     });
+
+    console.log("LocalStorage "+localStorage.getItem("token"));
+
+    if(localStorage.getItem("token") == "false"){
+      this.navCtrl.push(LoginPage);
+    }
   }
 
     goToMath(){
@@ -61,10 +70,14 @@ export class HomePage {
     goOut(){
         this.navCtrl.push(LoginPage);
     }
+    logout(){
+      localStorage.setItem("token","false");
+      this.navCtrl.setRoot(AuthenticatePage);
+      this.auth.idUsuario = "";
+      
+    }
 
     menu(encuesta_id){
-    
-
         var myJsonString = JSON.stringify(this.pollsUser);
         console.log("///////////////");
         console.log(myJsonString);
@@ -132,8 +145,7 @@ export class HomePage {
     
     
       create(){
-        this.usuario = this.auth.idUsuario;
-        console.log(this.usuario);
+        console.log("Crear encuesta id "+this.usuario);
         this.http.post('https://apex.oracle.com/pls/apex/indeme/INpolls/', {
           'id': this.usuario
         }).map((response:Response)=>{
