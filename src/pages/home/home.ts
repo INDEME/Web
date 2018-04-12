@@ -100,6 +100,7 @@ export class HomePage {
               type: 'radio',
               label: 'Graficar resultados.',
               value: '2'
+              
             }
             ,
             {
