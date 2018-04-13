@@ -26,11 +26,11 @@ export class SignupPage {
   }
  
   ionViewWillEnter() {
-    this.tabBarElement.style.display = 'none';
+    //this.tabBarElement.style.display = 'none';
   }
  
   ionViewWillLeave() {
-    this.tabBarElement.style.display = 'flex';
+    //this.tabBarElement.style.display = 'flex';
   }
   takeMeBack() {
     this.navCtrl.parent.select(0);

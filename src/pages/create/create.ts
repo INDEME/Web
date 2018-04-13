@@ -4,6 +4,7 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
 import { AuthSevice } from '../../services/auth/auth';
 import { CreateAskPage } from '../create-ask/create-ask';
+import { HomePage } from '../home/home';
 
 /**
  * Generated class for the CreatePage page.
@@ -115,6 +116,9 @@ export class CreatePage {
   openNavDetailsPage(item) {
     this.navCtrl.push(CreateAskPage, { item: item });
   }
+  goToPolls(){
+    this.navCtrl.push(HomePage);
+   }
 
   // GetAsk(){
   //   this.http.get("https://apex.oracle.com/pls/apex/indeme/INpolls/")

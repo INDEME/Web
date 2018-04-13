@@ -4,6 +4,9 @@ import { HomePage } from '../home/home';
 import { UserPage } from '../user/user';
 import { ToastController } from 'ionic-angular';
 
+import { AuthSevice } from '../../services/auth/auth';
+import { AuthenticatePage } from '../authenticate/authenticate';
+
 
 /**
  * Generated class for the CalculatorPage page.
@@ -40,7 +43,7 @@ export class CalculatorPage {
   TOTAL: number;
   totalResultado: string
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController,  public auth: AuthSevice, public navParams: NavParams, private toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
@@ -51,6 +54,12 @@ export class CalculatorPage {
         this.navCtrl.push(HomePage);
     }
     
+    logout(){
+      localStorage.setItem("token","false");
+      this.navCtrl.setRoot(AuthenticatePage);
+      this.auth.idUsuario = "";
+      
+    }
      goToUser(){
         this.navCtrl.push(UserPage);
     }

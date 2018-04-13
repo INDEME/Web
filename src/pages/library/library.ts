@@ -4,6 +4,9 @@ import { ConsultaProvider} from '../../providers/consulta/consulta';
 import { UserPage } from '../user/user';
 import { LoginPage } from '../login/login';
 import { CalculatorPage } from '../calculator/calculator';
+import { AuthSevice } from '../../services/auth/auth';
+import { HomePage } from '../home/home';
+import { AuthenticatePage } from '../authenticate/authenticate';
 /**
  * Generated class for the LibraryPage page.
  *
@@ -19,7 +22,7 @@ import { CalculatorPage } from '../calculator/calculator';
 export class LibraryPage {
   public list: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public consulta: ConsultaProvider) {
+  constructor(public navCtrl: NavController, public auth: AuthSevice, public navParams: NavParams, public consulta: ConsultaProvider) {
     this.loadList();
   }
 
@@ -37,6 +40,17 @@ export class LibraryPage {
       });
     })
   }
+
+  
+  logout(){
+    localStorage.setItem("token","false");
+    this.navCtrl.setRoot(AuthenticatePage);
+    this.auth.idUsuario = "";
+    
+  }
+  goToPolls(){
+    this.navCtrl.push(HomePage);
+   }
 
   doRefresh(refresher) {
     this.loadList().then(() => refresher.complete());

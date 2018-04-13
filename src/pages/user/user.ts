@@ -5,6 +5,8 @@ import { CalculatorPage } from '../calculator/calculator';
 import { ToastController } from 'ionic-angular';
 import { Http, Response} from '@angular/http';
 import 'rxjs/Rx';
+
+import { AuthenticatePage } from '../authenticate/authenticate';
 import { AuthSevice } from '../../services/auth/auth';
 /**
  * Generated class for the UserPage page.
@@ -45,6 +47,12 @@ export class UserPage {
     }
      goToHome(){
         this.navCtrl.push(HomePage);
+    }
+    logout(){
+      localStorage.setItem("token","false");
+      this.navCtrl.setRoot(AuthenticatePage);
+      this.auth.idUsuario = "";
+      
     }
 
     edit(){
