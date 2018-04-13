@@ -134,7 +134,7 @@ export class CreateAskPage {
 
     });
     
-    for(var i=0; i < this.asks.length+1; i++){
+    for(var i=0; i < this.asks.length; i++){
       if (this.id_pregunta != null){
       this.http.post('https://apex.oracle.com/pls/apex/indeme/INanswer/', {
         'id_encuesta': this.id_encuesta,
