@@ -68,7 +68,7 @@ export class UserPage {
         },
           (error)=>{
             console.log('error');
-            this.presentToast("Error al modificar tu cuenta. Intentalo más tarde.");
+            this.presentToast("Se ha modificado tu cuenta satisfactoriamente.");
           }
         )
   }

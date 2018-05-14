@@ -46,6 +46,7 @@ export class HomePage {
       this.resultado = data.items;
       console.log(this.resultado);
     });
+     
 
     console.log("LocalStorage "+localStorage.getItem("token"));
 
@@ -108,6 +109,12 @@ export class HomePage {
               label: 'Ver resultados.',
               value: '3'
             }
+            ,
+            {
+              type: 'radio',
+              label: 'Generar reporte.',
+              value: '4'
+            }
           ],
           buttons: [
             {
@@ -136,6 +143,10 @@ export class HomePage {
                 else if (data == "3"){
                   console.log("Ver encuesta");
                   this.navCtrl.push(ResultpollsPage, {encuesta_id});
+                }
+                else if (data == "4"){
+                  console.log("Generar reporte");
+                 // this.navCtrl.push(ReportPage, {encuesta_id});
                 }
                 }
             }
@@ -182,5 +193,13 @@ export class HomePage {
         position: 'middle'
       });
       toast.present();
+    }
+
+    deletePoll(encuesta){
+
+    }
+
+    modifyPoll(encuesta){
+
     }
 }

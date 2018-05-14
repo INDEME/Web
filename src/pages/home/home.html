@@ -46,10 +46,25 @@
 
     <ion-item>
         <ion-card padding class="containerEncuestas" *ngFor="let poll of resultado" (click)="menu(poll.id_encuesta)">
-            <p class="card-title">Encuesta</p>
-            <div class="card-subtitle">
-                <ion-icon name="ios-clipboard-outline"></ion-icon>
+            <p class="card-title">Encuesta creada el:</p>
+            <div class="card-subtitle" displayFormat="DD-MM-YYYY">{{poll.fecha}}
             </div>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <div class="botones">
+                    <ion-icon name="build" (click)="modifyPoll(poll.id_encuesta)" item-end></ion-icon>
+    
+                  </div>
+                </ion-col>
+                <ion-col>
+                  <div class="botones">
+                    <ion-icon name="trash" (click)="deletePoll(poll.id_encuesta)" item-end></ion-icon>
+                  </div>
+                </ion-col>
+    
+              </ion-row>
+            </ion-grid>
         </ion-card>
     </ion-item>
 
