@@ -14,8 +14,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'report.html',
 })
 export class ReportPage {
+  encuestaId: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.encuestaId = navParams.get('encuesta_id');
+    console.log(this.encuestaId);
   }
 
   ionViewDidLoad() {

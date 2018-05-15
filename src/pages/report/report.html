@@ -7,12 +7,49 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>report</ion-title>
+    <ion-title>Generar reporte</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+  <ion-content class="login-content" padding>
+    <div class="login-box">
 
-<ion-content padding>
+        <form (ngSubmit)="doReport()" #registerForm="ngForm">
+            <ion-card class="card card-md">
+                <ion-card-header>
+                    Rellena todos los campos.
+                </ion-card-header>
+                <ion-row>
+                    <ion-col>
+                        <ion-list inset>
 
-</ion-content>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="email" placeholder="Nombre de la empresa" name="email" required></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="nombre" placeholder="Nombre" name="name" required></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-input type="password" [(ngModel)]="contrasena" placeholder="Contraseña" name="password" required></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="password" [(ngModel)]="contrasena2" placeholder="Contraseña" name="password" required></ion-input>
+                            </ion-item>
+                        </ion-list>
+                    </ion-col>
+                </ion-row>
+
+                <ion-row>
+                    <ion-col class="signup-col">
+                        <button ion-button class="boton" type="submit" (click)="doReport()">ACEPTAR</button>
+                        
+                    </ion-col>
+                </ion-row>
+            </ion-card>
+        </form>
+
+    </div>
+
+

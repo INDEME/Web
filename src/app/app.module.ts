@@ -18,6 +18,7 @@ import { GraphicPage } from '../pages/graphic/graphic';
 import { DoPoollPage } from '../pages/do-pooll/do-pooll';
 import { CreateAskPage } from '../pages/create-ask/create-ask';
 import { CreatePage } from '../pages/create/create';
+import { ReportPage } from '../pages/report/report';
 
 import { ConsultaProvider } from '../providers/consulta/consulta';
 import { AuthSevice } from '../services/auth/auth';
@@ -32,6 +33,7 @@ import { HttpModule } from '@angular/http';
     SignupPage,
     LoginPage,
     CalculatorPage,
+    ReportPage,
     UserPage,
     SeePollPage,
     ResultpollsPage,
@@ -55,6 +57,7 @@ import { HttpModule } from '@angular/http';
     LoginPage,
     CalculatorPage,
     UserPage,
+    ReportPage,
     SeePollPage,
     ResultpollsPage,
     LibraryPage,

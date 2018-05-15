@@ -16,6 +16,7 @@ import 'rxjs/Rx';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { CreateAskPage } from '../create-ask/create-ask';
+import { ReportPage } from'../report/report';
 
 @Component({
   selector: 'page-home',
@@ -71,6 +72,7 @@ export class HomePage {
     goOut(){
         this.navCtrl.push(LoginPage);
     }
+
     logout(){
       localStorage.setItem("token","false");
       this.navCtrl.setRoot(AuthenticatePage);
@@ -146,7 +148,7 @@ export class HomePage {
                 }
                 else if (data == "4"){
                   console.log("Generar reporte");
-                 // this.navCtrl.push(ReportPage, {encuesta_id});
+                 this.navCtrl.push(ReportPage, {encuesta_id});
                 }
                 }
             }
@@ -172,18 +174,6 @@ export class HomePage {
           }
         )
         this.navCtrl.push(CreatePage);
-    }
-    
-    add(){
-      console.log(this.aswer);
-      if(this.Ask.length < 2){
-      this.Ask.push(this.aswer);
-      console.log(this.Ask[0]);
-      console.log(this.Ask.length);
-    }
-    else{
-      this.presentToast("No puedes agregar más.");
-    }
     }
     
     presentToast(message) {
