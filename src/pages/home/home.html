@@ -46,9 +46,7 @@
 
     <ion-item>
         <ion-card padding class="containerEncuestas" *ngFor="let poll of resultado" (click)="menu(poll.id_encuesta)">
-            <p class="card-title">Encuesta creada el:</p>
-            <div class="card-subtitle" displayFormat="DD-MM-YYYY">{{poll.fecha}}
-            </div>
+            <p class="card-title">Encuesta creada el: {{poll.fecha | date:'dd/MM/yyyy'}} </p>
             <ion-grid>
               <ion-row>
                 <ion-col>

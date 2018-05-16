@@ -4,7 +4,7 @@
       {{ item.title }}
     </ion-title>
     <ion-buttons end class="bar-buttons">
-      <button ion-button (click)="goToPolls()" icon-only color="royal">Mis encuestas</button>
+      <button ion-button (click)="goToPolls()" icon-only color="royal" class="boton">Mis encuestas</button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
@@ -22,7 +22,7 @@
       </ion-item>
  
 
-      <button ion-button class="button" (click)="OnSave()">Agregar pregunta</button>
+      <button ion-button class="button" (click)="OnSave()"class="boton">Agregar pregunta</button>
 
 
 
@@ -164,7 +164,7 @@
       </div>
 
       <div padding *ngIf="item.id==2">
-        <button ion-button [disabled]="!isenabled" type="submit" (click)="SaveAnswer()">Guardar respuestas</button>
+        <button ion-button [disabled]="!isenabled" type="submit" (click)="SaveAnswer()" class="boton">Guardar respuestas</button>
       </div>
  
     </ion-list>
