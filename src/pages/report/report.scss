@@ -1,9 +1,12 @@
 page-report {
     .login-content {
-        background-color: #DDDD;
+       
         .login-box {
             padding: 20px 20px 0px 20px;
             margin-top: 30px;
+        }
+        .botones{
+            text-align: center;
         }
         ion-row {
             align-items: center;

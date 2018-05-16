@@ -6,13 +6,13 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Generar reporte</ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-title>Generar reporte</ion-title>
+    </ion-navbar>
 
 </ion-header>
 
-  <ion-content class="login-content" padding>
+<ion-content class="login-content" padding>
     <div class="login-box">
 
         <form (ngSubmit)="doReport()" #registerForm="ngForm">
@@ -25,18 +25,109 @@
                         <ion-list inset>
 
                             <ion-item>
-                                <ion-input type="text" [(ngModel)]="email" placeholder="Nombre de la empresa" name="email" required></ion-input>
+                                <ion-input type="text" [(ngModel)]="title" placeholder="Titulo:" name="title"></ion-input>
                             </ion-item>
                             <ion-item>
-                                <ion-input type="text" [(ngModel)]="nombre" placeholder="Nombre" name="name" required></ion-input>
+                                <ion-input type="text" [(ngModel)]="for" placeholder="Preparado para:" name="for"></ion-input>
                             </ion-item>
 
                             <ion-item>
-                                <ion-input type="password" [(ngModel)]="contrasena" placeholder="Contraseña" name="password" required></ion-input>
+                                <ion-input type="text" [(ngModel)]="by" placeholder="Preparado por:" name="by"></ion-input>
                             </ion-item>
                             <ion-item>
-                                <ion-input type="password" [(ngModel)]="contrasena2" placeholder="Contraseña" name="password" required></ion-input>
+                                <ion-input type="text" [(ngModel)]="problem" placeholder="Problema" name="problem"></ion-input>
                             </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="object" placeholder="Objetivo" name="object"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="research" placeholder="Diseño de investigación" name="research"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="information" placeholder="Fuentes de información" name="information"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="instrumentation" placeholder="Diseño de instrumentación" name="instrumentation"></ion-input>
+                            </ion-item>
+
+                            <ion-item>
+                                <h2>Operacionalización de variables</h2>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="variable" name="variable" placeholder="Variable"></ion-input>
+                                <ion-input type="text" [(ngModel)]="dimension" name="dimension" placeholder="Dimensión"></ion-input>
+                                <ion-input type="text" [(ngModel)]="indicator" name="indicator" placeholder="Indicador"></ion-input>
+                                <ion-input type="number" [(ngModel)]="item" name="item" placeholder="Número de Item"></ion-input>
+                                <ion-item>
+                                <ion-grid>
+                                        <ion-row>
+                                          <ion-col>
+                                            <div class="botones">
+                                              <ion-icon name="add" (click)="addAskOption()" item-end></ion-icon>
+                              
+                                            </div>
+                                          </ion-col>
+                                          <ion-col>
+                                            <div class="botones">
+                                              <ion-icon name="trash" (click)="deleteAskOption()" item-end></ion-icon>
+                                            </div>
+                                          </ion-col>
+                              
+                                        </ion-row>
+                                      </ion-grid>
+                                </ion-item>
+                                <ion-list padding *ngFor="let num of asks">
+                                    <ion-item>
+                                        <ion-label>{{num}}</ion-label>
+                                    </ion-item>
+                                </ion-list>
+
+
+
+                            </ion-item>
+
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="population" placeholder="Población y muestra" name="population"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="graphic" placeholder="Tabulación y gráficas de datos" name="graphic"></ion-input>
+                            </ion-item>
+
+
+
+
+
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="analysis" placeholder="Análisis" name="analysis"></ion-input>
+                            </ion-item>
+
+
+
+
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="analysisG" placeholder="Análisis general" name="analysisG"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="analysisC" placeholder="Análisis cruzado" name="analysisC"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="conclusion" placeholder="Conclusiones y recomendaciones" name="conclusion"></ion-input>
+                            </ion-item>
+
+
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="annexA" placeholder="Anexo A" name="annexA"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="annexB" placeholder="Anexo B" name="annexB"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="annexC" placeholder="Anexo C" name="annexC"></ion-input>
+                            </ion-item>
+                            <ion-item>
+                                <ion-input type="text" [(ngModel)]="annexD" placeholder="Anexo D" name="annexD"></ion-input>
+                            </ion-item>
+
                         </ion-list>
                     </ion-col>
                 </ion-row>
@@ -44,12 +135,10 @@
                 <ion-row>
                     <ion-col class="signup-col">
                         <button ion-button class="boton" type="submit" (click)="doReport()">ACEPTAR</button>
-                        
+
                     </ion-col>
                 </ion-row>
             </ion-card>
         </form>
 
     </div>
-
-

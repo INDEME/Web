@@ -15,6 +15,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ReportPage {
   encuestaId: any;
+  asks: any;
+  answer: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.encuestaId = navParams.get('encuesta_id');
@@ -25,4 +27,18 @@ export class ReportPage {
     console.log('ionViewDidLoad ReportPage');
   }
 
+  addAskOption(){
+    console.log(this.answer);
+    this.asks.push(this.answer);
+    console.log(this.asks[0]);
+  }
+
+  deleteAskOption(){
+    if(this.asks.length >= 1){
+      this.asks.pop();
+    } 
+    console.log("Tamano"+this.asks.length);
+  }
+
+  
 }

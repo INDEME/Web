@@ -98,18 +98,20 @@ export class CreateAskPage {
     });
    
   }
+
   addAskOption(){
     console.log(this.answer);
     this.asks.push(this.answer);
     console.log(this.asks[0]);
   }
+
   deleteAskOption(){
     if(this.asks.length >= 1){
       this.asks.pop();
-    }
-    
+    } 
     console.log("Tamano"+this.asks.length);
   }
+
   addAskSlider(){
     
     this.askSliderCount = this.answer + 1;
