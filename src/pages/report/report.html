@@ -58,29 +58,7 @@
                                 <ion-input type="text" [(ngModel)]="dimension" name="dimension" placeholder="Dimensión"></ion-input>
                                 <ion-input type="text" [(ngModel)]="indicator" name="indicator" placeholder="Indicador"></ion-input>
                                 <ion-input type="number" [(ngModel)]="item" name="item" placeholder="Número de Item"></ion-input>
-                                <ion-item>
-                                <ion-grid>
-                                        <ion-row>
-                                          <ion-col>
-                                            <div class="botones">
-                                              <ion-icon name="add" (click)="addAskOption()" item-end></ion-icon>
-                              
-                                            </div>
-                                          </ion-col>
-                                          <ion-col>
-                                            <div class="botones">
-                                              <ion-icon name="trash" (click)="deleteAskOption()" item-end></ion-icon>
-                                            </div>
-                                          </ion-col>
-                              
-                                        </ion-row>
-                                      </ion-grid>
-                                </ion-item>
-                                <ion-list padding *ngFor="let num of asks">
-                                    <ion-item>
-                                        <ion-label>{{num}}</ion-label>
-                                    </ion-item>
-                                </ion-list>
+                                
 
 
 
@@ -141,4 +119,32 @@
             </ion-card>
         </form>
 
+        <ion-label stacked>Ingrese sus respuestas</ion-label>
+        <ion-input [disabled]="!isenabled" type="text" [(ngModel)]="answer" required></ion-input>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <div class="botones">
+                <ion-icon name="add" (click)="addAskOption()" item-end></ion-icon>
+
+              </div>
+            </ion-col>
+            <ion-col>
+              <div class="botones">
+                <ion-icon name="trash" (click)="deleteAskOption()" item-end></ion-icon>
+              </div>
+            </ion-col>
+
+          </ion-row>
+        </ion-grid>
+
+        <ion-item>
+          <ion-list padding *ngFor="let num of asks">
+            <ion-item>
+              <ion-radio></ion-radio>
+              <ion-label>{{num}}</ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-item>
+              
     </div>
