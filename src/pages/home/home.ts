@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { CalculatorPage } from '../calculator/calculator';
 import { UserPage } from '../user/user';
 import { LoginPage } from '../login/login';
@@ -15,7 +15,6 @@ import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
 import { AlertController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
-import { CreateAskPage } from '../create-ask/create-ask';
 import { ReportPage } from'../report/report';
 
 @Component({

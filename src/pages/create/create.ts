@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {Http, Response} from '@angular/http';
+import { Http } from '@angular/http';
 import 'rxjs/Rx';
 import { AuthSevice } from '../../services/auth/auth';
 import { CreateAskPage } from '../create-ask/create-ask';

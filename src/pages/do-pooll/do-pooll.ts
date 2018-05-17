@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ItemGroup } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { ToastController } from 'ionic-angular';
@@ -73,7 +73,7 @@ export class DoPoollPage {
       }
     }
     else{
-      this.presentToast("Asegurate de haber contestado cada una de las preguntas.")
+      this.presentToast("Asegurate de haber contestado cada una de las preguntas.");
     }
   }
 
@@ -82,6 +82,7 @@ export class DoPoollPage {
     this.addAnswer.push(number);
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
 
   saveInput(idPregunta){
@@ -89,6 +90,7 @@ export class DoPoollPage {
     this.addAnswer.push(this.inputAnswer);
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
 
 
@@ -104,6 +106,7 @@ export class DoPoollPage {
     }
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
 
   saveStar(idPregunta){
@@ -111,6 +114,7 @@ export class DoPoollPage {
     this.addAnswer.push(this.star);
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
 
   saveRange(idPregunta){
@@ -118,6 +122,7 @@ export class DoPoollPage {
     this.addAnswer.push(this.saturation);
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
 
   saveDimension(idPregunta){
@@ -125,6 +130,7 @@ export class DoPoollPage {
     this.addAnswer.push(this.dimensiones);
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
 
   saveEscala5(idPregunta){
@@ -132,6 +138,7 @@ export class DoPoollPage {
     this.addAnswer.push(this.escala5);
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
 
   saveEscala10(idPregunta){
@@ -139,6 +146,7 @@ export class DoPoollPage {
     this.addAnswer.push(this.escala10);
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
 
   saveMulti(item, idPregunta){
@@ -147,6 +155,7 @@ export class DoPoollPage {
     this.addAnswer.push(this.multi);
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
+    this.presentToast("Respuesta guardada.");
   }
 
   presentToast(message) {

@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ConsultaProvider} from '../../providers/consulta/consulta';
 import { UserPage } from '../user/user';
-import { LoginPage } from '../login/login';
 import { CalculatorPage } from '../calculator/calculator';
 import { AuthSevice } from '../../services/auth/auth';
 import { HomePage } from '../home/home';
