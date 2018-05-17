@@ -14,4 +14,11 @@
           <div class="card-subtitle">{{poll.resultado}}</div>
       </ion-card>
   </ion-item>
+
+  <ion-item>
+        <ion-card padding *ngFor="let result of asks">
+            <div class="card-title">{{result.pregunta}}</div>
+            <div class="card-subtitle">{{result.resultado}}</div>
+        </ion-card>
+    </ion-item>
 </ion-content>

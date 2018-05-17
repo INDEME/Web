@@ -56,7 +56,7 @@ export class DoPoollPage {
     if(this.resultado.length == this.addAnswer.length && this.addAnswer.length == this.addIdPreguntas.length){
       console.log("Vamo a guardar");
 
-      for(var i=0; i < this.resultado.length+1; i++){
+      for(var i=0; i < this.resultado.length; i++){
         this.http.post('https://apex.oracle.com/pls/apex/indeme/INresultAdd/', {
           'id_encuesta': this.encuestaId,
           'id_pregunta': this.addIdPreguntas[i],
@@ -68,6 +68,7 @@ export class DoPoollPage {
         },
           (error)=>{
             console.log('error');
+            this.presentToast("Encuesta guardada con éxito.");
           }
         )
       }
@@ -161,7 +162,7 @@ export class DoPoollPage {
   presentToast(message) {
     let toast = this.toastCtrl.create({
       message: ''+message ,
-      duration: 3000,
+      duration: 500,
       position: 'middle'
     });
     toast.present();

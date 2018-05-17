@@ -18,6 +18,11 @@ import 'rxjs/Rx';
 export class ResultpollsPage {
   encuestaId: any;
   resultado2: any;
+  asks: any [] = [];
+  result: any [] = [];
+  number: any [] = [];
+  size: any;
+  
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
@@ -30,9 +35,13 @@ export class ResultpollsPage {
     console.log("000000000000000");
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskResult/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado2 = data.items;
+      this.size = this.resultado2.length;
     console.log("Results");
       console.log(this.resultado2);
+      console.log(this.resultado2.length);
     });
+   
+
   }
 
 

@@ -11,7 +11,7 @@
    
         <ion-list padding *ngFor="let poll of resultado">
             <div *ngIf="poll.id_encuesta == encuestaId">
-                <div class="card-title"><h4>{{poll.pregunta}}</h4></div>
+                <div class="card-title"><h4><b>{{poll.pregunta}}</b></h4></div>
                 <div *ngIf="poll.id_tipo_pregunta==2">
                         <ion-list padding *ngFor="let item of askItems" radio-group [(ngModel)]="multi">
                             <div *ngIf="poll.id_pregunta == item.id_pregunta">
