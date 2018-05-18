@@ -120,7 +120,7 @@ export class CreateAskPage {
   SaveAnswer(){
     console.log("Encuesta " +this.id_encuesta);
     console.log("Pregunta " + this.pregunta);
-    
+    if (this.pregunta != null){
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskGet/' + this.id_encuesta +"/"+this.pregunta ).map(res => res.json()).subscribe(data => {
       this.resultAsk = data.items;
       console.log(this.resultAsk[0]);
@@ -160,7 +160,10 @@ export class CreateAskPage {
     console.log(this.id_encuesta);
     console.log(this.id_pregunta);
     console.log(this.asks);
-
+  }
+  else{
+    this.presentToast("Rellena los campos con alguna pregunta.");
+  }
   }
 
   presentToast(message) {

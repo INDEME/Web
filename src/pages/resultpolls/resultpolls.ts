@@ -40,8 +40,6 @@ export class ResultpollsPage {
       console.log(this.resultado2);
       console.log(this.resultado2.length);
     });
-   
-
   }
 
 
