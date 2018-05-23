@@ -4,7 +4,8 @@ import {
 import {
   IonicPage,
   NavController,
-  NavParams
+  NavParams,
+  LoadingController 
 } from 'ionic-angular';
 import {
   SignupPage
@@ -39,11 +40,15 @@ export class LoginPage {
   contrasena: string;
   token: any;
   resultado: any;
+  loading: any;
 
-  constructor(public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams,
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams,
     public auth: AuthSevice, public http: Http) {
     localStorage.setItem("token", "false");
     //this.session();
+    this.loading = this.loadingCtrl.create({content: 'Iniciando sessión...'
+    });
+    
   }
 
   ionViewDidLoad() {
@@ -67,6 +72,7 @@ export class LoginPage {
   }
 
   login() {
+    this.loading.present();
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INgetuser/' + this.nombre + "/" + this.contrasena).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       if (data.items.length >= 1) {
@@ -75,6 +81,7 @@ export class LoginPage {
         console.log("Resultado auth: "+ this.resultado[0].id_usuarios);      
         localStorage.setItem("token", "true");
         localStorage.setItem("usuario", this.resultado[0].id_usuarios);
+        this.loading.dismiss();
 
         this.navCtrl.push(HomePage);
       } else {

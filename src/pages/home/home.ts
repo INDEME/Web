@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { CalculatorPage } from '../calculator/calculator';
 import { UserPage } from '../user/user';
 import { LoginPage } from '../login/login';
@@ -23,6 +23,7 @@ import { ReportPage } from'../report/report';
 })
 export class HomePage {
   usuario: number;
+  loading: any;
   numero: number;
   AskNumber : number;
   contador: number;
@@ -32,10 +33,14 @@ export class HomePage {
   resultado: any;
   pollsUser: any [] = [];
 
-  constructor(public navCtrl: NavController, private toastCtrl:ToastController, public navParams: NavParams, private alertCtrl: AlertController, public http:Http,  public auth: AuthSevice) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, private toastCtrl:ToastController, public navParams: NavParams, private alertCtrl: AlertController, public http:Http,  public auth: AuthSevice) {
     localStorage.getItem("token");
     console.log("LocalStorage "+localStorage.getItem("token"));
     this.usuario = parseInt(localStorage.getItem("usuario"));
+    this.loading = this.loadingCtrl.create({
+      content: 'Cargando tus encuestas...'
+  });
+  this.loading.present();
   }
 
   ionViewDidLoad() {
@@ -45,6 +50,7 @@ export class HomePage {
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.usuario).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
       console.log(this.resultado);
+      this.loading.dismiss();
     });
      
 
