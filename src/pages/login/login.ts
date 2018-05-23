@@ -85,6 +85,7 @@ export class LoginPage {
 
         this.navCtrl.push(HomePage);
       } else {
+        this.loading.dismiss();
         this.presentToast("Usuario y/o contraseña incorrectos.");
       }
     });
