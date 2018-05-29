@@ -23,6 +23,8 @@ export class ResultpollsPage {
   number: any [] = [];
   size: any;
   loading: any;
+  pregunta: any [] = [];
+  resultados: any [][] =[[],[]];
   
 
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
@@ -41,12 +43,14 @@ export class ResultpollsPage {
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskResult/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado2 = data.items;
       this.loading.dismiss();
-    console.log("Results");
-      console.log(this.resultado2);
-      console.log(this.resultado2.length);
+      for(var i = 0; i <this.resultado2.length; i++){
+        this.pregunta.push(this.resultado2[i].pregunta);
+        this.result.push(this.resultado2[i].resultado);
+        this.resultados.push(this.resultado2[i].pregunta, this.resultado2[i].resultado);
+      }
+        console.log(this.resultados[1][1]+"aa");
     });
 
-    console.log(this.asks);
     
   }
 

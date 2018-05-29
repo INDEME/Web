@@ -40,7 +40,7 @@ export class LibraryPage {
     return new Promise(resolve => {
       this.consulta.getListPreguntas().then(results => {
         this.list = results;
-        //console.log(this.list);
+        console.log(this.list);
         this.loading.dismiss();
         return resolve();
        

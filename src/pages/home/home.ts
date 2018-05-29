@@ -47,11 +47,7 @@ export class HomePage {
     console.log("Usuario local Storage: "+localStorage.getItem("usuario"));
     
     console.log("USUARIO HOME: "+this.usuario);
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.usuario).map(res => res.json()).subscribe(data => {
-      this.resultado = data.items;
-      console.log(this.resultado);
-      this.loading.dismiss();
-    });
+   
      
 
     console.log("LocalStorage "+localStorage.getItem("token"));
@@ -59,6 +55,15 @@ export class HomePage {
     if(localStorage.getItem("token") == "false"){
       this.navCtrl.push(LoginPage);
     }
+    this.updatePoll();
+  }
+
+  updatePoll(){
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.usuario).map(res => res.json()).subscribe(data => {
+      this.resultado = data.items;
+      console.log(this.resultado);
+      this.loading.dismiss();
+    });
   }
 
     goToMath(){
@@ -122,6 +127,12 @@ export class HomePage {
               label: 'Generar reporte.',
               value: '4'
             }
+            ,
+            {
+              type: 'radio',
+              label: 'Eliminar encuesta.',
+              value: '5'
+            }
           ],
           buttons: [
             {
@@ -154,6 +165,10 @@ export class HomePage {
                 else if (data == "4"){
                   console.log("Generar reporte");
                  this.navCtrl.push(ReportPage, {encuesta_id});
+                }
+                else if (data == "5"){
+                  console.log("Eliminar encuesta");
+                 this.deletePoll(encuesta_id);
                 }
                 }
             }
@@ -191,7 +206,24 @@ export class HomePage {
     }
 
     deletePoll(encuesta){
+      console.log(encuesta);
+      this.http.post('https://apex.oracle.com/pls/apex/indeme/IN/deletePoll/' ,{
+        'id_encuesta': encuesta}).map((response:Response)=>{
+        return response.json();
+        //console.log (response.json());
+      }).subscribe(
+        ()=> {console.log("Success");
+        this.presentToast("Encuesta eliminada.");
+      },
+        (error)=>{
+          console.log('error'+ error);
+          this.presentToast("Encuesta eliminada.");
+          this.updatePoll();
+        }
+      )     
 
+
+      
     }
 
     modifyPoll(encuesta){

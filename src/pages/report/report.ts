@@ -15,8 +15,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ReportPage {
   encuestaId: any;
-  asks: any;
+  asks: any [] = [];
   answer: any;
+  askSliderCount: any;
+  title: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.encuestaId = navParams.get('encuesta_id');
@@ -40,5 +42,10 @@ export class ReportPage {
     console.log("Tamano"+this.asks.length);
   }
 
+  addAskSlider(){
+    
+    this.askSliderCount = this.answer + 1;
+    
+  }
   
 }
