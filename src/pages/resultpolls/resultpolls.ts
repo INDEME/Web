@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-a
 import {Http} from '@angular/http';
 import 'rxjs/Rx';
 
-/**
- * Generated class for the ResultpollsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -24,7 +18,7 @@ export class ResultpollsPage {
   size: any;
   loading: any;
   pregunta: any [] = [];
-  resultados: any [][] =[[],[]];
+  resultados: any [] =[];
   
 
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
@@ -42,13 +36,24 @@ export class ResultpollsPage {
     console.log("000000000000000");
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskResult/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado2 = data.items;
+      console.log(this.resultado2);
       this.loading.dismiss();
       for(var i = 0; i <this.resultado2.length; i++){
         this.pregunta.push(this.resultado2[i].pregunta);
         this.result.push(this.resultado2[i].resultado);
-        this.resultados.push(this.resultado2[i].pregunta, this.resultado2[i].resultado);
       }
-        console.log(this.resultados[1][1]+"aa");
+
+      for(var a = 0; a <this.pregunta.length; a++){
+        for(var b = 0; b <this.pregunta.length; b++){
+          if(this.pregunta[a] == this.pregunta[b]){
+            this.resultados.push(1);
+          }
+        }
+      }
+
+      for(var e = 0; e <this.resultados.length; e++){
+      console.log(this.resultados[e]);
+      }
     });
 
     

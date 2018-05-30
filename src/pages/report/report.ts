@@ -19,6 +19,20 @@ export class ReportPage {
   answer: any;
   askSliderCount: any;
   title: any;
+  graphic: any [] = [];
+  annexA: any [] = [];
+  annexB: any [] = [];
+  annexC: any [] = [];
+  annexD: any [] = [];
+  answerannexA: any [] = [];
+  answerannexB: any [] = [];
+  answerannexC: any [] = [];
+  answerannexD: any [] = [];
+  operacion: any [] = [];
+  variable: any;
+  dimension: any;
+  indicator: any;
+  item: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.encuestaId = navParams.get('encuesta_id');
@@ -30,22 +44,72 @@ export class ReportPage {
   }
 
   addAskOption(){
-    console.log(this.answer);
-    this.asks.push(this.answer);
-    console.log(this.asks[0]);
+    if(this.variable != null && this.dimension != null && this.indicator != null && this.item != null){
+    this.operacion.push(this.variable);
+    this.operacion.push(this.dimension);
+    this.operacion.push(this.indicator);
+    this.operacion.push(this.item);
+    }
   }
 
   deleteAskOption(){
     if(this.asks.length >= 1){
       this.asks.pop();
     } 
-    console.log("Tamano"+this.asks.length);
   }
 
-  addAskSlider(){
-    
-    this.askSliderCount = this.answer + 1;
-    
+  addGraphic(){
+    this.graphic.push(this.answer);
+  }
+
+  deleteGraphic(){
+    if(this.graphic.length >= 1){
+      this.graphic.pop();
+    } 
+  }
+
+  addA(){
+    this.annexA.push(this.answerannexA);
+  }
+
+  deleteA(){
+    if(this.annexA.length >= 1){
+      this.annexA.pop();
+    } 
+  }
+
+  addB(){
+    this.annexB.push(this.answerannexB);
+  }
+
+  deleteB(){
+    if(this.annexB.length >= 1){
+      this.annexB.pop();
+    } 
+  }
+
+  addC(){
+    this.annexC.push(this.answerannexC);
+  }
+
+  deleteC(){
+    if(this.annexC.length >= 1){
+      this.annexC.pop();
+    } 
+  }
+
+  addD(){
+    this.annexD.push(this.answerannexD);
+  }
+
+  deleteD(){
+    if(this.annexD.length >= 1){
+      this.annexD.pop();
+    } 
+  }
+
+  doReport(){
+
   }
   
 }
