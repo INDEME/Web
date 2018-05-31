@@ -78,6 +78,7 @@ export class CreateAskPage {
     },
       (error)=>{
         console.log('error');
+        this.presentToast("pregunta guardada exitosamente");
       }
     )
     this.isenabled=true; 
@@ -149,6 +150,7 @@ export class CreateAskPage {
       },
         (error)=>{
           console.log('error');
+          this.presentToast("Respuestas guardadas exitosamente");
         }
       )
     }

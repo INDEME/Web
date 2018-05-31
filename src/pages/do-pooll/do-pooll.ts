@@ -63,6 +63,7 @@ export class DoPoollPage {
       console.log("Vamo a guardar");
 
       for(var i=0; i < this.resultado.length; i++){
+               
         this.http.post('https://apex.oracle.com/pls/apex/indeme/INresultAdd/', {
           'id_encuesta': this.encuestaId,
           'id_pregunta': this.addIdPreguntas[i],
@@ -79,6 +80,7 @@ export class DoPoollPage {
         )
       }
     }
+  
     else{
       this.presentToast("Asegurate de haber contestado cada una de las preguntas.");
     }
@@ -90,7 +92,7 @@ export class DoPoollPage {
     console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
     this.presentToast("Respuesta guardada.");
-  }
+  } 
 
   saveInput(idPregunta){
     console.log(this.inputAnswer);
@@ -159,16 +161,28 @@ export class DoPoollPage {
   saveMulti(item, idPregunta){
     console.log(item);
     console.log(this.multi);
-    this.addAnswer.push(this.multi);
-    console.log(idPregunta);
-    this.addIdPreguntas.push(idPregunta);
-    this.presentToast("Respuesta guardada.");
+    console.log("Condicion     "+this.addIdPreguntas.indexOf(idPregunta));
+    console.log("Tamano de respuestas    "+this.addAnswer.length);
+    if (this.addIdPreguntas.indexOf(idPregunta)>= 0){
+      this.presentToast("La pregunta ya ha sido guardada anteriormente");
+      console.log("asdfghjklkjhgfghjhg     "+this.multi);
+      console.log("Respuestas     "+this.addAnswer);
+    }
+    else{
+      this.addAnswer.push(this.multi);
+      console.log(idPregunta);
+      this.addIdPreguntas.push(idPregunta);
+      this.presentToast("Respuesta guardada.");
+     
+    }
+    console.log("respuestas   "+this.addAnswer);
+    
   }
 
   presentToast(message) {
     let toast = this.toastCtrl.create({
       message: ''+message ,
-      duration: 500,
+      duration: 2000,
       position: 'middle'
     });
     toast.present();
