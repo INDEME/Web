@@ -110,7 +110,6 @@ export class HomePage {
               text: 'Cancelar',
               role: 'cancel',
               handler: () => {
-                console.log('Cancel clicked');
               }
             },
             {
