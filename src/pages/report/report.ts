@@ -44,7 +44,6 @@ export class ReportPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController,  public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
-    console.log(this.encuestaId);
   }
 
   ionViewDidLoad() {
