@@ -1,19 +1,7 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
-import { UserPage } from '../user/user';
-import { ToastController } from 'ionic-angular';
 
-import { AuthSevice } from '../../services/auth/auth';
-import { AuthenticatePage } from '../authenticate/authenticate';
+import { Component, IonicPage, NavController, NavParams, HomePage, AuthSevice, ToastController, AuthenticatePage,
+ UserPage} from '../index.paginas';
 
-
-/**
- * Generated class for the CalculatorPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -44,10 +32,6 @@ export class CalculatorPage {
   totalResultado: string
 
   constructor(public navCtrl: NavController,  public auth: AuthSevice, public navParams: NavParams, private toastCtrl: ToastController) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CalculatorPage');
   }
 
     goToHome(){
@@ -86,16 +70,12 @@ export class CalculatorPage {
         console.log(this.TOTAL);
     }
 
-    
-
     presentToast(resultadoFinal: number) {
       let toast = this.toastCtrl.create({
         message: 'Resultado: ' + resultadoFinal,
         duration: 3000,
         position: 'middle'
       });
-    
-    
       toast.present();
     }
 }

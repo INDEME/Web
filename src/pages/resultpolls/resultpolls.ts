@@ -1,8 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-angular';
-import {Http} from '@angular/http';
 import 'rxjs/Rx';
-
+import { Component, IonicPage, NavController, NavParams, LoadingController, Http } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -20,7 +17,6 @@ export class ResultpollsPage {
   pregunta: any [] = [];
   resultados: any [] =[];
   
-
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
   }

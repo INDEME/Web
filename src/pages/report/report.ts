@@ -1,16 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {
-  ToastController
-} from 'ionic-angular';
-import {Http} from '@angular/http';
-import 'rxjs/Rx';
-/**
- * Generated class for the ReportPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import 'rxjs/Rx'
+import { Component, IonicPage, NavController, NavParams, ToastController, Http } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -59,10 +48,8 @@ export class ReportPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ReportPage');
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsSearch/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
-      console.log(this.resultado.length);
       this.tamano = this.resultado.length;
     });
   }

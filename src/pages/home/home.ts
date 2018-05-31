@@ -1,21 +1,8 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams, LoadingController } from 'ionic-angular';
-import { CalculatorPage } from '../calculator/calculator';
-import { UserPage } from '../user/user';
-import { LoginPage } from '../login/login';
-import { AuthSevice } from '../../services/auth/auth';
-import { CreatePage } from '../create/create';
-import { AuthenticatePage } from '../authenticate/authenticate';
-import { ResultpollsPage } from '../resultpolls/resultpolls';
-import { DoPoollPage } from '../do-pooll/do-pooll';
-import { SeePollPage} from '../see-poll/see-poll';
-import { GraphicPage } from '../graphic/graphic';
-import { LibraryPage } from '../library/library';
-import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
-import { AlertController } from 'ionic-angular';
-import { ToastController } from 'ionic-angular';
-import { ReportPage } from'../report/report';
+import { Component, IonicPage, NavController, NavParams, LoadingController, ToastController,
+  Response, Http, CalculatorPage, UserPage, LoginPage, AuthSevice, CreatePage, AuthenticatePage,
+  ResultpollsPage, DoPoollPage, SeePollPage, GraphicPage, LibraryPage, AlertController, 
+  ReportPage } from '../index.paginas';
 
 @Component({
   selector: 'page-home',
@@ -35,7 +22,6 @@ export class HomePage {
 
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, private toastCtrl:ToastController, public navParams: NavParams, private alertCtrl: AlertController, public http:Http,  public auth: AuthSevice) {
     localStorage.getItem("token");
-    console.log("LocalStorage "+localStorage.getItem("token"));
     this.usuario = parseInt(localStorage.getItem("usuario"));
     this.loading = this.loadingCtrl.create({
       content: 'Cargando tus encuestas...'
@@ -44,14 +30,6 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-    console.log("Usuario local Storage: "+localStorage.getItem("usuario"));
-    
-    console.log("USUARIO HOME: "+this.usuario);
-   
-     
-
-    console.log("LocalStorage "+localStorage.getItem("token"));
-
     if(localStorage.getItem("token") == "false"){
       this.navCtrl.push(LoginPage);
     }
@@ -61,13 +39,11 @@ export class HomePage {
   updatePoll(){
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsGet/'+ this.usuario).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
-      console.log(this.resultado);
       this.loading.dismiss();
     });
   }
 
     goToMath(){
-        console.log(this.auth.idUsuario);
         this.navCtrl.push(CalculatorPage);
     }
     
@@ -91,11 +67,6 @@ export class HomePage {
     }
 
     menu(encuesta_id){
-        var myJsonString = JSON.stringify(this.pollsUser);
-        console.log("///////////////");
-        console.log(myJsonString);
-        console.log(encuesta_id);
-        console.log("///////////////");
         let alert = this.alertCtrl.create({
           title: '¿Qué deseas hacer?',
           inputs: [
@@ -145,30 +116,23 @@ export class HomePage {
             {
               text: 'Aceptar',
               handler: (data:string) => {
-                console.log(data);
                 if (data == "0"){
-                  console.log("Visualizar encuesta");
                   this.navCtrl.push(SeePollPage, {encuesta_id});
                 }
                 else if (data == "1"){
-                  console.log("Aplicar encuesta");
                   this.navCtrl.push(DoPoollPage, {encuesta_id});
                 }
                 else if (data == "2"){
-                  console.log("Graficar encuesta");
                   this.navCtrl.push(GraphicPage);
                 }
                 else if (data == "3"){
-                  console.log("Ver encuesta");
                   this.navCtrl.push(ResultpollsPage, {encuesta_id});
                 }
                 else if (data == "4"){
-                  console.log("Generar reporte");
-                 this.navCtrl.push(ReportPage, {encuesta_id});
+                  this.navCtrl.push(ReportPage, {encuesta_id});
                 }
                 else if (data == "5"){
-                  console.log("Eliminar encuesta");
-                 this.deletePoll(encuesta_id);
+                  this.deletePoll(encuesta_id);
                 }
                 }
             }
@@ -177,20 +141,16 @@ export class HomePage {
         alert.present();
       }
     
-    
       create(){
-        console.log("Crear encuesta id "+this.usuario);
         this.http.post('https://apex.oracle.com/pls/apex/indeme/INpolls/', {
           'id': this.usuario
         }).map((response:Response)=>{
           return response.json();
-          //console.log (response.json());
         }).subscribe(
-          ()=> {console.log("Success");
+          ()=> {
           
         },
           (error)=>{
-            console.log('error'+ error);
           }
         )
         this.navCtrl.push(CreatePage);
@@ -206,27 +166,17 @@ export class HomePage {
     }
 
     deletePoll(encuesta){
-      console.log(encuesta);
       this.http.post('https://apex.oracle.com/pls/apex/indeme/IN/deletePoll/' ,{
         'id_encuesta': encuesta}).map((response:Response)=>{
         return response.json();
-        //console.log (response.json());
       }).subscribe(
-        ()=> {console.log("Success");
+        ()=> {
         this.presentToast("Encuesta eliminada.");
       },
         (error)=>{
-          console.log('error'+ error);
           this.presentToast("Encuesta eliminada.");
           this.updatePoll();
         }
-      )     
-
-
-      
-    }
-
-    modifyPoll(encuesta){
-
+      )           
     }
 }

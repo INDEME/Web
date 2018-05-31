@@ -1,34 +1,5 @@
-import {
-  Component
-} from '@angular/core';
-import {
-  IonicPage,
-  NavController,
-  NavParams,
-  LoadingController 
-} from 'ionic-angular';
-import {
-  SignupPage
-} from '../signup/signup';
-import {
-  HomePage
-} from '../home/home';
-import {
-  Http
-} from '@angular/http';
-import 'rxjs/Rx';
-import {
-  AuthSevice
-} from '../../services/auth/auth';
-import {
-  ToastController
-} from 'ionic-angular';
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component, IonicPage, NavController, NavParams, LoadingController, ToastController,
+  Http, SignupPage, HomePage, AuthSevice } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -45,15 +16,9 @@ export class LoginPage {
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, private toastCtrl: ToastController, public navParams: NavParams,
     public auth: AuthSevice, public http: Http) {
     localStorage.setItem("token", "false");
-    //this.session();
     this.loading = this.loadingCtrl.create({content: 'Iniciando sessión...'
     });
     
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-
   }
 
   session() {
@@ -63,6 +28,7 @@ export class LoginPage {
       this.navCtrl.push(LoginPage);
     }
   }
+
   goToSignUp() {
     this.navCtrl.push(SignupPage);
   }
@@ -78,11 +44,9 @@ export class LoginPage {
       if (data.items.length >= 1) {
         this.auth.idUsuario = this.resultado[0].id_usuarios;
         this.auth.NombreUsuario = this.resultado[0].nombres;  
-        console.log("Resultado auth: "+ this.resultado[0].id_usuarios);      
         localStorage.setItem("token", "true");
         localStorage.setItem("usuario", this.resultado[0].id_usuarios);
         this.loading.dismiss();
-
         this.navCtrl.push(HomePage);
       } else {
         this.loading.dismiss();

@@ -1,9 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-angular';
-import { Http, Response } from '@angular/http';
 import 'rxjs/Rx';
-import { ToastController } from 'ionic-angular';
- 
+import { Component, IonicPage, NavController, NavParams, LoadingController, ToastController,
+  Response, Http } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -28,9 +25,6 @@ export class DoPoollPage {
 
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http:Http, private toastCtrl:ToastController) {
     this.encuestaId = navParams.get('encuesta_id');
-    console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,:)");
-    console.log(this.encuestaId);
-    console.log(",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,:)");
     this.loading = this.loadingCtrl.create({
       content: 'Cargando preguntas...'
   });
@@ -38,30 +32,18 @@ export class DoPoollPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SeePollPage:)');
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INpollsSearch/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.resultado = data.items;
-      console.log(this.resultado);
-     
     });
 
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskItems/' + this.encuestaId).map(res => res.json()).subscribe(data => {
       this.askItems = data.items;
       this.loading.dismiss();
-      console.log(this.askItems);
     });
   }
 
   doPoll(){
-    console.log(this.resultado.length);
-    console.log(this.addAnswer.length);
-    console.log(this.addAnswer);
-    console.log(this.addIdPreguntas);
-    console.log("LA encuesta es: " +this.encuestaId);
-
     if(this.resultado.length == this.addAnswer.length && this.addAnswer.length == this.addIdPreguntas.length){
-      console.log("Vamo a guardar");
-
       for(var i=0; i < this.resultado.length; i++){
         this.http.post('https://apex.oracle.com/pls/apex/indeme/INresultAdd/', {
           'id_encuesta': this.encuestaId,
@@ -70,10 +52,9 @@ export class DoPoollPage {
         }).map((response:Response)=>{
           return response.json();
         }).subscribe(
-          ()=> {console.log("Success");
+          ()=> {
         },
           (error)=>{
-            console.log('error');
             this.presentToast("Encuesta guardada con éxito.");
           }
         )
@@ -85,24 +66,18 @@ export class DoPoollPage {
   }
 
   Escala(number, idPregunta){
-    console.log(number);
     this.addAnswer.push(number);
-    console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
     this.presentToast("Respuesta guardada.");
   }
 
   saveInput(idPregunta){
-    console.log(this.inputAnswer);
     this.addAnswer.push(this.inputAnswer);
-    console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
     this.presentToast("Respuesta guardada.");
   }
 
-
   saveFace(face, idPregunta){
-    console.log(face);
     if (face == "happy"){
       this.presentToast("Carita feliz seleccionada.");
       this.addAnswer.push("happy");
@@ -111,56 +86,42 @@ export class DoPoollPage {
       this.presentToast("Carita triste seleccionada.");
       this.addAnswer.push("sad");
     }
-    console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
     this.presentToast("Respuesta guardada.");
   }
 
   saveStar(idPregunta){
-    console.log(this.star);
     this.addAnswer.push(this.star);
-    console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
     this.presentToast("Respuesta guardada.");
   }
 
   saveRange(idPregunta){
-    console.log(this.saturation);
     this.addAnswer.push(this.saturation);
-    console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
     this.presentToast("Respuesta guardada.");
   }
 
   saveDimension(idPregunta){
-    console.log(this.dimensiones);
     this.addAnswer.push(this.dimensiones);
-    console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
     this.presentToast("Respuesta guardada.");
   }
 
   saveEscala5(idPregunta){
-    console.log(this.escala5);
     this.addAnswer.push(this.escala5);
-    console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
     this.presentToast("Respuesta guardada.");
   }
 
   saveEscala10(idPregunta){
-    console.log(this.escala10);
     this.addAnswer.push(this.escala10);
-    console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
     this.presentToast("Respuesta guardada.");
   }
 
   saveMulti(item, idPregunta){
-    console.log(item);
-    console.log(this.multi);
     this.addAnswer.push(this.multi);
-    console.log(idPregunta);
     this.addIdPreguntas.push(idPregunta);
     this.presentToast("Respuesta guardada.");
   }
