@@ -39,7 +39,6 @@ export class SignupPage {
     else{
     this.presentToast('Rellena todos los campos de manera correcta.');
   }
-
 }
 
   comprobacion(){
