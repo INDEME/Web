@@ -61,17 +61,11 @@
                         
                                       </div>
                                     </ion-col>
-                                    <ion-col>
-                                      <div class="botones">
-                                        <ion-icon name="trash" (click)="deleteAskOption()" item-end></ion-icon>
-                                      </div>
-                                    </ion-col>
-                        
                                   </ion-row>
                                 </ion-grid>
                         
                                 <ion-item>
-                                  <ion-list padding *ngFor="let num of operacion">
+                                  <ion-list padding *ngFor="let num of showVariable">
                                    
                                       <ion-label>{{num}}</ion-label>
                                     
@@ -84,11 +78,11 @@
                                 <ion-textarea type="text" [(ngModel)]="population" placeholder="Población y muestra" name="population"></ion-textarea>
                             </ion-item>
                             <ion-item>
-                                <ion-textarea type="text" [(ngModel)]="graphic" placeholder="Tabulación y gráficas de datos" name="graphic"></ion-textarea>
+                                <ion-textarea type="text" [(ngModel)]="graphicc" placeholder="Tabulación y gráficas de datos" name="graphicc"></ion-textarea>
                             </ion-item>
 
                             <ion-list>   
-                                <ion-textarea  type="text" [(ngModel)]="answer" required placeholder="Ingrese el análisis de cada una de las graficas"></ion-textarea>
+                                <ion-textarea  type="text" [(ngModel)]="answer" required placeholder="Ingrese el análisis de cada una de las graficas ({{tamano}})."></ion-textarea>
                                 <ion-grid>
                                   <ion-row>
                                     <ion-col>
@@ -140,12 +134,7 @@
                       
                                     </div>
                                   </ion-col>
-                                  <ion-col>
-                                    <div class="botones">
-                                      <ion-icon name="trash" (click)="deleteA" item-end></ion-icon>
-                                    </div>
-                                  </ion-col>
-                      
+                                  
                                 </ion-row>
                               </ion-grid>
                       
@@ -172,12 +161,7 @@
                       
                                     </div>
                                   </ion-col>
-                                  <ion-col>
-                                    <div class="botones">
-                                      <ion-icon name="trash" (click)="deleteB" item-end></ion-icon>
-                                    </div>
-                                  </ion-col>
-                      
+                                  
                                 </ion-row>
                               </ion-grid>
                       
@@ -204,12 +188,7 @@
                       
                                     </div>
                                   </ion-col>
-                                  <ion-col>
-                                    <div class="botones">
-                                      <ion-icon name="trash" (click)="deleteC" item-end></ion-icon>
-                                    </div>
-                                  </ion-col>
-                      
+                                  
                                 </ion-row>
                               </ion-grid>
                       
@@ -237,12 +216,7 @@
                       
                                     </div>
                                   </ion-col>
-                                  <ion-col>
-                                    <div class="botones">
-                                      <ion-icon name="trash" (click)="deleteD" item-end></ion-icon>
-                                    </div>
-                                  </ion-col>
-                      
+                                  
                                 </ion-row>
                               </ion-grid>
                       
@@ -262,7 +236,7 @@
 
                 <ion-row>
                     <ion-col class="signup-col">
-                        <button ion-button class="boton" full type="submit" (click)="doReport()">Crear reporte</button>
+                        <button ion-button  class="boton" full type="submit" (click)="doReport()">Crear reporte</button>
 
                     </ion-col>
                 </ion-row>     
