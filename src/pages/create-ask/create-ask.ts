@@ -69,7 +69,7 @@ export class CreateAskPage {
       else{
       }
     });
-   
+    this.presentToast("Pregunta guardada correctamente.");
   }
 
   addAskOption(){
@@ -87,6 +87,7 @@ export class CreateAskPage {
   }
   SaveAnswer(){
     if (this.pregunta != null){
+      this.presentToast("Pregunta guardada correctamente.");
     this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskGet/' + this.id_encuesta +"/"+this.pregunta ).map(res => res.json()).subscribe(data => {
       this.resultAsk = data.items;
       this.id_pregunta = this.resultAsk[0];
