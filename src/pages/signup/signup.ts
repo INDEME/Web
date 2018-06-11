@@ -1,5 +1,5 @@
 import 'rxjs/Rx';
-import { Component, IonicPage, NavController, LoginPage, FormBuilder, ToastController,
+import { Component, NavController, LoginPage, FormBuilder, ToastController,
   Response, Http } from '../index.paginas';
 
 @Component({

@@ -1,6 +1,6 @@
 import 'rxjs/Rx';
-import { Component, IonicPage, NavController, NavParams, HomePage, AuthSevice, ToastController, AuthenticatePage,
-  UserPage, Http, CreateAskPage } from '../index.paginas';
+import { Component, IonicPage, NavController, NavParams, HomePage, AuthSevice, ToastController,
+  Http, CreateAskPage } from '../index.paginas';
 
 @IonicPage()
 @Component({

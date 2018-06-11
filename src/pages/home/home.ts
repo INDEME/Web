@@ -1,5 +1,5 @@
 import 'rxjs/Rx';
-import { Component, IonicPage, NavController, NavParams, LoadingController, ToastController,
+import { Component, NavController, NavParams, LoadingController, ToastController,
   Response, Http, CalculatorPage, UserPage, LoginPage, AuthSevice, CreatePage, AuthenticatePage,
   ResultpollsPage, DoPoollPage, SeePollPage, GraphicPage, LibraryPage, AlertController, 
   ReportPage } from '../index.paginas';
@@ -128,7 +128,7 @@ export class HomePage {
                   this.navCtrl.push(ResultpollsPage, {encuesta_id});
                 }
                 else if (data == "4"){
-                  this.navCtrl.push(ReportPage, {encuesta_id});
+                  this.navCtrl.push(ReportPage);
                 }
                 else if (data == "5"){
                   this.deletePoll(encuesta_id);
