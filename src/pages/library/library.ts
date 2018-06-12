@@ -9,6 +9,7 @@ import { Component, IonicPage, NavController, NavParams, LoadingController, Toas
 export class LibraryPage {
   public list: any = [];
   loading: any;
+  nombre: any;
   
   constructor(private toastCtrl: ToastController, public navCtrl: NavController, public loadingCtrl: LoadingController, public auth: AuthSevice, public navParams: NavParams, public consulta: ConsultaProvider) {
     this.loadList();
@@ -64,4 +65,16 @@ presentToast(message) {
   });
   toast.present();
 }
+
+search(nombre){
+    return new Promise(resolve => {
+      this.consulta.getListPreguntasByName(this.nombre).then(results => {
+        this.list = results;
+        this.loading.dismiss();
+        return resolve();
+      }).catch(err => {  
+        return resolve();
+      });
+    })
+  }
 }
