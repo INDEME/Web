@@ -9,13 +9,7 @@ import { Component, IonicPage, NavController, NavParams, LoadingController, Http
 export class ResultpollsPage {
   encuestaId: any;
   resultado2: any;
-  asks: any;
-  result: any [] = [];
-  number: any [] = [];
-  size: any;
   loading: any;
-  pregunta: any [] = [];
-  resultados: any [] =[];
   
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
