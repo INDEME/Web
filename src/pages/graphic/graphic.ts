@@ -1,4 +1,4 @@
-import { Component, IonicPage, NavController, NavParams } from '../index.paginas';
+import { Component, IonicPage, NavController, NavParams, ConsultaProvider, LoadingController, Http } from '../index.paginas';
 
 
 @IonicPage()
@@ -7,7 +7,23 @@ import { Component, IonicPage, NavController, NavParams } from '../index.paginas
   templateUrl: 'graphic.html',
 })
 export class GraphicPage {
+  encuestaId: any;
+  resultado2: any;
+  loading: any;
+  nombre: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public consulta: ConsultaProvider, public navParams: NavParams, public http:Http) {
+    this.encuestaId = navParams.get('encuesta_id');
+  }
+
+  ionViewDidLoad() {
+    this.loading = this.loadingCtrl.create({
+      content: 'Cargando resultados...'
+  });
+  this.loading.present();
+    this.http.get('https://apex.oracle.com/pls/apex/indeme/IN/askAll/' + this.encuestaId).map(res => res.json()).subscribe(data => {
+      this.resultado2 = data.items;
+      this.loading.dismiss();
+    });
   }
 }

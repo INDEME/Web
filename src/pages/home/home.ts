@@ -122,7 +122,7 @@ export class HomePage {
                   this.navCtrl.push(DoPoollPage, {encuesta_id});
                 }
                 else if (data == "2"){
-                  this.navCtrl.push(GraphicPage);
+                  this.navCtrl.push(GraphicPage, {encuesta_id});
                 }
                 else if (data == "3"){
                   this.navCtrl.push(ResultpollsPage, {encuesta_id});
