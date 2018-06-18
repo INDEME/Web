@@ -1,12 +1,34 @@
 <ion-header>
-  <ion-navbar class="toolbar toolbar-md">
-      <ion-title class="toolbar-title toolbar-title-md">
-          Graficación de los resultados
-      </ion-title>
+  <ion-navbar>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>
+      Graficación de los resultados
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="contarRegresar()">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </button>
+    </ion-buttons>
+     <ion-buttons end>
+      <button ion-button icon-only (click)="contar()">
+        <ion-icon name="arrow-round-forward"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
-  <p>Por el momento la aplicación no cuenta con este servicio.</p>
+<ion-content>
+  <h2>{{pregunta}}</h2>
+  <div style="display: block">
+    <canvas baseChart 
+                [data]="doughnutChartData"
+                [labels]="doughnutChartLabels"
+                [chartType]="doughnutChartType">
+    </canvas>
+  </div>
 </ion-content>
