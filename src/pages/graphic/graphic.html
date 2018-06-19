@@ -23,7 +23,9 @@
 
 
 <ion-content>
-  <h2>{{pregunta}}</h2>
+  <ion-card>
+  <ion-card-header>{{preguntaShow}}</ion-card-header>
+  <ion-card-content>
   <div style="display: block">
     <canvas baseChart 
                 [data]="doughnutChartData"
@@ -31,4 +33,6 @@
                 [chartType]="doughnutChartType">
     </canvas>
   </div>
+  </ion-card-content>
+</ion-card>
 </ion-content>
