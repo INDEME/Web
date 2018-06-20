@@ -10,29 +10,19 @@ export class GraphicPage {
   encuestaId: any;
   resultado2: any;
   loading: any;
-  nombre: string;
   preguntasVector: string;
   resultados: string [] = [];
   respuestas: string [] = [];
-
-  
-  nombres: string [] = ['Polo', 'Julio', 'Verne'];
-  valores: string [] = ['500', '600', '700'];
-
-  paises: string [] = ['México', 'USA', 'España', 'Cataluña'];
-  valor: number [] = [300, 400, 50, 20];
-
-  inicial: string [] = ['', '', '', ''];
-  valoresIniciales: string [] = ['97', '1', '1', '1'];
-
+  inicial: string [] = [];
+  valoresIniciales: string [] = ['25', '25', '25', '25'];
   doughnutChartLabels: string [];
   doughnutChartData: string [];
   public doughnutChartType: string = 'pie';
   conta : number = 0;
-  conta2 : number = 0;
   preguntaShow: any;
   preguntaAux: any;
   resAux: any;
+  labelText: string = "";
   
 
   constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public consulta: ConsultaProvider, public navParams: NavParams, public http:Http) {
@@ -62,6 +52,7 @@ export class GraphicPage {
     this.respuestas = [];
     this.resultados = [];
     this.resAux = [];
+    this.labelText = "";
   }
 
   contar(){
@@ -80,18 +71,19 @@ export class GraphicPage {
   }
 
   separar(vectorSeparar){
+    this.doughnutChartLabels = [];
     for (var w = 0; w <= vectorSeparar.length - 1; w++){
-      this.respuestas.push(vectorSeparar[w].respuesta);
       this.resultados.push(vectorSeparar[w].resultados);
+      this.labelText += "    " + vectorSeparar[w].respuesta;
+      this.labelText += ":";
+      this.labelText += " " + vectorSeparar[w].resultados;
     }
-    this.doughnutChartLabels = this.respuestas;
     this.doughnutChartData = this.resultados;
   }
 
   contarRegresar(){
     if (this.conta >= 0 && this.conta <= this.preguntasVector.length){
-      if (this.conta == 0){}
-      else if (this.conta >= 1) { this.conta --; }
+      if (this.conta == 0){} else if (this.conta >= 1) { this.conta --; }
       this.clear();
       this.preguntaAux = this.preguntasVector[this.conta];
       this.preguntaShow = this.preguntaAux.pregunta;
@@ -102,8 +94,5 @@ export class GraphicPage {
       }
       this.separar(this.resAux);
       }
-
-   
-    
   }
 }
