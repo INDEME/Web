@@ -1,19 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { HomePage } from '../home/home';
-import { CalculatorPage } from '../calculator/calculator';
-import { ToastController } from 'ionic-angular';
-import { Http, Response} from '@angular/http';
 import 'rxjs/Rx';
-
-import { AuthenticatePage } from '../authenticate/authenticate';
-import { AuthSevice } from '../../services/auth/auth';
-/**
- * Generated class for the UserPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component, IonicPage, NavController, HomePage, CalculatorPage, ToastController,
+  Response, Http, AuthenticatePage, AuthSevice, NavParams } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -35,12 +22,10 @@ export class UserPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad EditPage');
     this.datoNombre = this.auth.NombreUsuario;
     this.IdentificadorUsuario = this.auth.idUsuario;
     this.nombreUsuario = "Hola a: "+this.datoNombre;
-    console.log(this.IdentificadorUsuario);
-  }
+    }
 
      goToMath(){
         this.navCtrl.push(CalculatorPage);
@@ -63,11 +48,10 @@ export class UserPage {
         }).map((response:Response)=>{
           return response.json();
         }).subscribe(
-          ()=> {console.log("Success");
+          ()=> {
           this.presentToast("Se ha modificado tu cuenta satisfactoriamente.");
         },
           (error)=>{
-            console.log('error');
             this.presentToast("Se ha modificado tu cuenta satisfactoriamente.");
           }
         )

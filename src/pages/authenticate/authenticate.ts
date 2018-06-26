@@ -1,14 +1,4 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AuthSevice } from '../../services/auth/auth';
-import { LoginPage } from '../login/login';
-import { HomePage } from '../home/home';
-/**
- * Generated class for the AuthenticatePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component, IonicPage, NavController, NavParams, LoginPage, HomePage, AuthSevice } from '../index.paginas';
 
 @IonicPage()
 @Component({

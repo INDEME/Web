@@ -22,7 +22,7 @@ import { ReportPage } from '../pages/report/report';
 
 import { ConsultaProvider } from '../providers/consulta/consulta';
 import { AuthSevice } from '../services/auth/auth';
-
+import { ChartsModule } from 'ng2-charts';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -46,7 +46,8 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ChartsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

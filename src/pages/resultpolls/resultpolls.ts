@@ -1,14 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController  } from 'ionic-angular';
-import {Http} from '@angular/http';
 import 'rxjs/Rx';
-
-/**
- * Generated class for the ResultpollsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Component, IonicPage, NavController, NavParams, LoadingController, Http, ConsultaProvider } from '../index.paginas';
 
 @IonicPage()
 @Component({
@@ -18,37 +9,39 @@ import 'rxjs/Rx';
 export class ResultpollsPage {
   encuestaId: any;
   resultado2: any;
-  asks: any;
-  result: any [] = [];
-  number: any [] = [];
-  size: any;
   loading: any;
+  nombre: string;
   
-
-  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public navParams: NavParams, public http:Http) {
+  constructor(public loadingCtrl: LoadingController, public navCtrl: NavController, public consulta: ConsultaProvider, public navParams: NavParams, public http:Http) {
     this.encuestaId = navParams.get('encuesta_id');
   }
 
   ionViewDidLoad() {
     this.loading = this.loadingCtrl.create({
       content: 'Cargando resultados...'
-  });
+  }); 
   this.loading.present();
-    console.log('ionViewDidLoad ResultpollsPage');
-    console.log("000000000000000");
-    console.log(this.encuestaId);
-    console.log("000000000000000");
-    this.http.get('https://apex.oracle.com/pls/apex/indeme/INaskResult/' + this.encuestaId).map(res => res.json()).subscribe(data => {
-      this.resultado2 = data.items;
+  return new Promise(resolve => {
+    this.consulta.getAskAllResults(this.encuestaId).then(results => {
+      this.resultado2 = results;
       this.loading.dismiss();
-    console.log("Results");
-      console.log(this.resultado2);
-      console.log(this.resultado2.length);
+      return resolve();
+    }).catch(err => {  
+      return resolve();
     });
+  })
 
-    console.log(this.asks);
-    
+  
   }
 
-
+  search(nombre){
+    return new Promise(resolve => {
+      this.consulta.getListResult(this.encuestaId, this.nombre).then(results => {
+        this.resultado2 = results;
+        return resolve();
+      }).catch(err => {  
+        return resolve();
+      });
+    })
+  }
 }
