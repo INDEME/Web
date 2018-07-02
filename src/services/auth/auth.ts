@@ -4,5 +4,6 @@ import { Injectable } from "@angular/core";
 export class AuthSevice {
  public idUsuario;
  public NombreUsuario;
+ public navbarAllowed;
 
 }

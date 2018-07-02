@@ -24,6 +24,7 @@ import { ConsultaProvider } from '../providers/consulta/consulta';
 import { AuthSevice } from '../services/auth/auth';
 import { ChartsModule } from 'ng2-charts';
 import { HttpModule } from '@angular/http';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -73,6 +74,9 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConsultaProvider 
+  ],
+  schemas: [
+    NO_ERRORS_SCHEMA
   ]
 })
 export class AppModule {}

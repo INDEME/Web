@@ -1,1 +1,35 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-header *ngIf="auth.navbarAllowed == 1" [content]="myNav">
+    <ion-toolbar>
+        <ion-title>
+            Investigación de Mercado
+        </ion-title>
+
+
+        <ion-buttons end class="bar-buttons">
+            <button ion-button icon-only color="royal">Mis encuestas</button>
+        </ion-buttons>
+
+
+        <ion-buttons *ngFor="let p of pages" end>
+            <button ion-button (click)="goToPage(p.component)" icon-only color="royal">
+                <ion-icon name="{{p.icon}}"></ion-icon>
+              </button>
+        </ion-buttons>
+
+
+        <ion-buttons end>
+            <button ion-button icon-only color="royal">
+                <ion-icon name="book"></ion-icon>
+              </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <button ion-button icon-only color="royal" (click)="logout()">
+                <ion-icon name="log-out"></ion-icon>
+              </button>
+        </ion-buttons>
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-nav #myNav [root]="rootPage"></ion-nav>

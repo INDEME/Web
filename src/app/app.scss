@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -14,3 +12,26 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.login_bg {
+    background-image: url("../assets/imgs/login_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gen_bg {
+    background-image: url("../assets/imgs/login_background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.other_bg {
+    background-image: url("../assets/imgs/other_bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.colors_bg {
+    background-image: url("../assets/imgs/colors.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

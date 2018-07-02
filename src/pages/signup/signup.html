@@ -6,30 +6,36 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content class="login-content" padding>
+<ion-content class="login-content login_bg" padding>
     <div class="login-box">
 
         <form (ngSubmit)="register()" #registerForm="ngForm">
             <ion-card class="card card-md">
-                <ion-card-header>
-                    Registrate!
-                </ion-card-header>
+                <p>
+                    Registrate con nosotros
+                </p>
                 <ion-row>
                     <ion-col>
                         <ion-list inset>
 
+                            <strong>Correo electronico:</strong>
                             <ion-item>
-                                <ion-input type="email" [(ngModel)]="email" placeholder="Correo electronico" name="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Correo electronico" name="email" required></ion-input>
-                            </ion-item>
-                            <ion-item>
-                                <ion-input type="text" [(ngModel)]="nombre" placeholder="Nombre" name="name" required></ion-input>
+                                <ion-input type="email" [(ngModel)]="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" name="email" required></ion-input>
                             </ion-item>
 
+                            <strong>Nombre:</strong>
                             <ion-item>
-                                <ion-input type="password" [(ngModel)]="contrasena" placeholder="Contraseña" name="password" required minlength="6"></ion-input>
+                                <ion-input type="text" [(ngModel)]="nombre" name="name" required></ion-input>
                             </ion-item>
+
+                            <strong>Contraseña:</strong>
                             <ion-item>
-                                <ion-input type="password" [(ngModel)]="contrasena2" placeholder="Contraseña" name="password" required minlength="6"></ion-input>
+                                <ion-input type="password" [(ngModel)]="contrasena" name="password" required minlength="6"></ion-input>
+                            </ion-item>
+
+                            <strong>Confirmar contraseña:</strong>
+                            <ion-item>
+                                <ion-input type="password" [(ngModel)]="contrasena2" name="password" required minlength="6"></ion-input>
                             </ion-item>
                         </ion-list>
                     </ion-col>
@@ -38,7 +44,7 @@
                 <ion-row>
                     <ion-col class="signup-col">
                         <button ion-button class="boton" type="submit" (click)="register()">ACEPTAR</button>
-                        
+
                     </ion-col>
                 </ion-row>
             </ion-card>
@@ -46,4 +52,3 @@
 
     </div>
 </ion-content>
-

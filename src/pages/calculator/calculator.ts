@@ -3,7 +3,7 @@ import { Component, IonicPage, NavController, NavParams, HomePage, AuthSevice, T
  UserPage} from '../index.paginas';
 
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-calculator',
   templateUrl: 'calculator.html',
@@ -34,20 +34,7 @@ export class CalculatorPage {
   constructor(public navCtrl: NavController,  public auth: AuthSevice, public navParams: NavParams, private toastCtrl: ToastController) {
   }
 
-    goToHome(){
-        this.navCtrl.push(HomePage);
-    }
-    
-    logout(){
-      localStorage.setItem("token","false");
-      this.navCtrl.setRoot(AuthenticatePage);
-      this.auth.idUsuario = "";
-      
-    }
-     goToUser(){
-        this.navCtrl.push(UserPage);
-    }
-
+   
     calcularMuestra(){
         this.ERRORVALOR2 = Number(this.errorValor);
         this.POBLACIONVALOR2 = Number(this.poblacionValor);

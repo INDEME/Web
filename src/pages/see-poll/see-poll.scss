@@ -1,5 +1,4 @@
 page-see-poll {
-
     .toolbar-background-md {
         background: #030B26;
     }
@@ -9,17 +8,16 @@ page-see-poll {
         font-weight: 500;
         color: white;
     }
-    div .container{
+    div .container {
         margin: 0;
         padding-left: 16px;
     }
-    .card-title{
+    .card-title {
         font-size: 22px;
         font-weight: 1000;
         font-family: 'Times New Roman', Times, serif;
     }
-
-    button .boton{
+    button .boton {
         margin: auto;
         display: block;
         border: round;
@@ -32,5 +30,10 @@ page-see-poll {
         background-color: #081936;
         margin-bottom: 20px;
         margin-top: 15px;
+    }
+    .search-bar {
+        width: 40%!important;
+        text-align: center;
+        margin: auto;
     }
 }

@@ -1,172 +1,174 @@
 <ion-header>
-  <ion-navbar class="toolbar toolbar-md">
-    <ion-title class="toolbar-title toolbar-title-md">
-      {{ item.title }}
-    </ion-title>
-    <ion-buttons end class="bar-buttons">
-      <button ion-button (click)="goToPolls()" icon-only color="royal" class="boton">Mis encuestas</button>
-    </ion-buttons>
-  </ion-navbar>
+    <ion-navbar class="toolbar toolbar-md">
+        <ion-title class="toolbar-title toolbar-title-md">
+            {{ item.title }}
+        </ion-title>
+        <ion-buttons end class="bar-buttons">
+            <button ion-button (click)="goToPolls()" icon-only color="royal" class="boton">Mis encuestas</button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
 
 
 
 
-<ion-content padding>
-  <ion-card>
-    <ion-list>
-      <ion-item>
-
-        <ion-label stacked>Ingrese su pregunta</ion-label>
-        <ion-input type="text" [(ngModel)]="pregunta"></ion-input>
-      </ion-item>
- 
-
-      <button ion-button class="button" (click)="OnSave()"class="boton">Agregar pregunta</button>
+<ion-content class="gen_bg" padding>
+    <ion-card>
+        <ion-list>
 
 
 
-      <div padding *ngIf="item.id==2 || item.id == 1">
-        <ion-label stacked>Ingrese sus respuestas</ion-label>
-        <ion-input [disabled]="!isenabled" type="text" [(ngModel)]="answer" required></ion-input>
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <div class="botones">
-                <ion-icon name="add" (click)="addAskOption()" item-end></ion-icon>
+            <ion-label class="text_lb">·Ingresa tu pregunta:</ion-label>
+            <ion-input type="text" [(ngModel)]="pregunta"></ion-input>
 
-              </div>
-            </ion-col>
-            <ion-col>
-              <div class="botones">
-                <ion-icon name="trash" (click)="deleteAskOption()" item-end></ion-icon>
-              </div>
-            </ion-col>
 
-          </ion-row>
-        </ion-grid>
+            <button ion-button round (click)="OnSave()" class="boton">Agregar</button>
 
-        <ion-item>
-          <ion-list padding *ngFor="let num of asks">
-            <ion-item>
-              <ion-radio></ion-radio>
-              <ion-label>{{num}}</ion-label>
-            </ion-item>
-          </ion-list>
-        </ion-item>
-      </div>
 
-      <div padding class="container" *ngIf="item.id == 5">
-        <ion-img class="imageEmocion" src="../../assets/imgs/rating0.png"></ion-img>
-      </div>
+            <div *ngIf="item.id==2 || item.id == 1">
 
-      <div padding class="container" *ngIf="item.id == 6">
-        <ion-grid>
-          <ion-row>
-            <ion-col>
-              <ion-img class="image" width="150" height="150" src="../../assets/imgs/happy.png"></ion-img>
-            </ion-col>
-            <ion-col>
-              <ion-img class="image" width="150" height="150" src="../../assets/imgs/sad.png"></ion-img>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
 
-      <div padding *ngIf="item.id==21">
-        <ion-list radio-group [(ngModel)]="Unica">
-          <ion-item>
-            <ion-label>1</ion-label>
-            <ion-radio value="1"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>2</ion-label>
-            <ion-radio value="2"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>3</ion-label>
-            <ion-radio value="3"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>4</ion-label>
-            <ion-radio value="4"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>5</ion-label>
-            <ion-radio value="5"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>6</ion-label>
-            <ion-radio value="6"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>7</ion-label>
-            <ion-radio value="7"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>8</ion-label>
-            <ion-radio value="8"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>9</ion-label>
-            <ion-radio value="9"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>10</ion-label>
-            <ion-radio value="10"></ion-radio>
-          </ion-item>
+                <ion-label class="text_lb">·Ingresa las respuestas:</ion-label>
+                <ion-input [disabled]="!isenabled" type="text" [(ngModel)]="answer" required></ion-input>
+
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <div class="botones">
+                                <ion-icon name="add" (click)="addAskOption()" item-end></ion-icon>
+
+                            </div>
+                        </ion-col>
+                        <ion-col>
+                            <div class="botones">
+                                <ion-icon name="trash" (click)="deleteAskOption()" item-end></ion-icon>
+                            </div>
+                        </ion-col>
+
+                    </ion-row>
+                </ion-grid>
+
+                <ion-item>
+                    <ion-list padding *ngFor="let num of asks">
+                        <ion-item>
+                            <ion-radio></ion-radio>
+                            <ion-label>{{num}}</ion-label>
+                        </ion-item>
+                    </ion-list>
+                </ion-item>
+            </div>
+
+            <div padding class="container" *ngIf="item.id == 5">
+                <ion-img class="imageEmocion" src="../../assets/imgs/rating0.png"></ion-img>
+            </div>
+
+            <div padding class="container" *ngIf="item.id == 6">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <ion-img class="image" width="150" height="150" src="../../assets/imgs/happy.png"></ion-img>
+                        </ion-col>
+                        <ion-col>
+                            <ion-img class="image" width="150" height="150" src="../../assets/imgs/sad.png"></ion-img>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+
+            <div padding *ngIf="item.id==21">
+                <ion-list radio-group [(ngModel)]="Unica">
+                    <ion-item>
+                        <ion-label>1</ion-label>
+                        <ion-radio value="1"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>2</ion-label>
+                        <ion-radio value="2"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>3</ion-label>
+                        <ion-radio value="3"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>4</ion-label>
+                        <ion-radio value="4"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>5</ion-label>
+                        <ion-radio value="5"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>6</ion-label>
+                        <ion-radio value="6"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>7</ion-label>
+                        <ion-radio value="7"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>8</ion-label>
+                        <ion-radio value="8"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>9</ion-label>
+                        <ion-radio value="9"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>10</ion-label>
+                        <ion-radio value="10"></ion-radio>
+                    </ion-item>
+                </ion-list>
+            </div>
+
+            <div padding *ngIf="item.id==4">
+                <ion-list radio-group [(ngModel)]="Unica">
+                    <ion-item>
+                        <ion-label>1</ion-label>
+                        <ion-radio value="1"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>2</ion-label>
+                        <ion-radio value="2"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>3</ion-label>
+                        <ion-radio value="3"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>4</ion-label>
+                        <ion-radio value="4"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>5</ion-label>
+                        <ion-radio value="5"></ion-radio>
+                    </ion-item>
+                </ion-list>
+            </div>
+
+            <div padding *ngIf="item.id==22">
+                <ion-list radio-group [(ngModel)]="Unica">
+                    <ion-item>
+                        <ion-label>Si</ion-label>
+                        <ion-radio value="si"></ion-radio>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>No</ion-label>
+                        <ion-radio value="no"></ion-radio>
+                    </ion-item>
+                </ion-list>
+            </div>
+
+            <div padding class="container" *ngIf="item.id == 23">
+                <ion-range margin min="0" max="10" [(ngModel)]="saturation" color="secondary">
+                    <ion-label range-left>0</ion-label>
+                    <ion-label range-right>10</ion-label>
+                </ion-range>
+            </div>
+
+            <div padding *ngIf="item.id==2">
+                <button ion-button round [disabled]="!isenabled" type="submit" (click)="SaveAnswer()" class="boton">Guardar respuestas</button>
+            </div>
+
         </ion-list>
-      </div>
-
-      <div padding *ngIf="item.id==4">
-        <ion-list radio-group [(ngModel)]="Unica">
-          <ion-item>
-            <ion-label>1</ion-label>
-            <ion-radio value="1"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>2</ion-label>
-            <ion-radio value="2"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>3</ion-label>
-            <ion-radio value="3"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>4</ion-label>
-            <ion-radio value="4"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>5</ion-label>
-            <ion-radio value="5"></ion-radio>
-          </ion-item>
-        </ion-list>
-      </div>
-
-      <div padding *ngIf="item.id==22">
-        <ion-list radio-group [(ngModel)]="Unica">
-          <ion-item>
-            <ion-label>Si</ion-label>
-            <ion-radio value="si"></ion-radio>
-          </ion-item>
-          <ion-item>
-            <ion-label>No</ion-label>
-            <ion-radio value="no"></ion-radio>
-          </ion-item>
-        </ion-list>
-      </div>
-
-      <div padding class="container" *ngIf="item.id == 23">
-        <ion-range margin min="0" max="10" [(ngModel)]="saturation" color="secondary">
-          <ion-label range-left>0</ion-label>
-          <ion-label range-right>10</ion-label>
-        </ion-range>
-      </div>
-
-      <div padding *ngIf="item.id==2">
-        <button ion-button [disabled]="!isenabled" type="submit" (click)="SaveAnswer()" class="boton">Guardar respuestas</button>
-      </div>
- 
-    </ion-list>
-  </ion-card>
+    </ion-card>
 </ion-content>

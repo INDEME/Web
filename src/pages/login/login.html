@@ -1,43 +1,39 @@
 <ion-header>
-  <ion-navbar class="toolbar toolbar-md">
-    <ion-title class="toolbar-title toolbar-title-md">
-      Investigación de Mercado
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar class="toolbar toolbar-md">
+        <ion-title class="toolbar-title toolbar-title-md">
+            Investigación de Mercado
+        </ion-title>
+    </ion-navbar>
 </ion-header>
 
-<ion-content class="padding">
-  <ion-grid>
-    <ion-row center>
-      <ion-col>
-        <ion-card class="container">
+<ion-content class="login_bg">
+    <ion-grid>
+        <ion-row center>
+            <ion-col>
+                <ion-card class="container">
 
-          <ion-card-header class="header-container">
+                    <ion-card-header class="header-container">Inicia sesión</ion-card-header>
 
-            Inicia Sesión
-          </ion-card-header>
+                    <ion-item>
+                        <ion-input type="text" placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
+                    </ion-item>
 
-          <ion-item>
-            <ion-input type="text" placeholder="Nombre" [(ngModel)]="nombre"></ion-input>
-          </ion-item>
+                    <ion-item>
+                        <ion-input type="password" placeholder="Contraseña" [(ngModel)]="contrasena" required minlength="6"></ion-input>
+                    </ion-item>
 
-          <ion-item>
-            <ion-input type="password" placeholder="Contraseña" [(ngModel)]="contrasena" required minlength="6"></ion-input>
-          </ion-item>
+                    <button ion-button round class="boton" (click)="login()">Aceptar</button>
+                    <h2 class="h2">¿No tienes cuenta con nosotros? </h2>
+                    <button ion-button round class="boton" (click)="goToSignUp()">Registrate!</button>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-          <button ion-button class="boton" (click)="login()">Aceptar</button>
-          <h2 class="h2">¿No tienes cuenta con nosotros? </h2>
-          <button ion-button class="boton" (click)="goToSignUp()" clear>Registrate!</button>
-        </ion-card>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
 
-  <ion-item class="itemLink">
-        <button ion-button class="botonLink" block outline clear onclick="window.open('https://drive.google.com/folderview?id=1Wpy5Eo_6bnQg9UY4IC8T7ku5kBhGwwEh', '_blank', 'location=no');">
+    <button ion-button class="botonLink" block outline clear onclick="window.open('https://drive.google.com/folderview?id=1Wpy5Eo_6bnQg9UY4IC8T7ku5kBhGwwEh', '_blank', 'location=no');">
             Descarga nuestra aplicación para Android
         </button>
-  </ion-item>
+
 
 </ion-content>
-

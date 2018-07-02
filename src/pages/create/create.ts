@@ -85,10 +85,16 @@ export class CreatePage {
     ]
   }
 
+  ionViewDidEnter(){
+    this.auth.navbarAllowed = 1;
+  }
+
   openNavDetailsPage(item) {
+    this.auth.navbarAllowed = 0;
     this.navCtrl.push(CreateAskPage, { item: item });
   }
   goToPolls(){
+    this.auth.navbarAllowed = 0;
     this.navCtrl.push(HomePage);
    }
 }

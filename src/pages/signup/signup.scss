@@ -1,7 +1,5 @@
 page-signup {
-    
     .login-content {
-        background-color: #DDDD;
         .login-box {
             padding: 20px 20px 0px 20px;
             margin-top: 30px;
@@ -18,7 +16,7 @@ page-signup {
             border: 1px solid #ffffff;
             box-shadow: none !important;
         }
-        .boton{
+        .boton {
             margin: auto;
             display: block;
             border: round;
@@ -28,10 +26,8 @@ page-signup {
             font-weight: 50px;
             text-transform: uppercase;
             color: #fff;
-            background-color: #081936;
             margin-bottom: 20px;
             margin-top: 15px;
-        
         }
         .signup-col {
             margin: 0px 16px 0px 16px;
@@ -41,8 +37,8 @@ page-signup {
             border-bottom-color: #ffffff !important;
             box-shadow: none !important;
         }
-        .signup-col{
-            color:#ffffff;
+        .signup-col {
+            color: #ffffff;
             font-size: 0.8em;
         }
     }
@@ -55,5 +51,8 @@ page-signup {
         font-weight: 500;
         color: white;
     }
+    ion-input {
+        border-bottom: 2px solid;
+        border-bottom-color: grey;
+    }
 }
-

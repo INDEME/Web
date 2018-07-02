@@ -3,6 +3,7 @@ import { Component, NavController, NavParams, LoadingController, ToastController
   Response, Http, CalculatorPage, UserPage, LoginPage, AuthSevice, CreatePage, AuthenticatePage,
   ResultpollsPage, DoPoollPage, SeePollPage, GraphicPage, LibraryPage, AlertController, 
   ReportPage, ConsultaProvider } from '../index.paginas';
+import { MyApp } from '../../app/app.component';
 
 @Component({
   selector: 'page-home',
@@ -20,7 +21,18 @@ export class HomePage {
   resultado: any;
   pollsUser: any [] = [];
 
-  constructor(public loadingCtrl: LoadingController,public consulta:ConsultaProvider, public navCtrl: NavController, private toastCtrl:ToastController, public navParams: NavParams, private alertCtrl: AlertController, public http:Http,  public auth: AuthSevice) {
+  constructor(
+    public loadingCtrl: LoadingController,
+    public consulta:ConsultaProvider,
+    public navCtrl: NavController,
+    private toastCtrl:ToastController,
+    public navParams: NavParams,
+    private alertCtrl: AlertController,
+    public http:Http,
+    public auth: AuthSevice,
+    //private appCmp: MyApp
+  ) {
+    
     localStorage.getItem("token");
     this.usuario = parseInt(localStorage.getItem("usuario"));
     this.loading = this.loadingCtrl.create({
@@ -33,7 +45,12 @@ export class HomePage {
     if(localStorage.getItem("token") == "false"){
       this.navCtrl.push(LoginPage);
     }
+    
     this.updatePoll();
+  }
+
+  ionViewDidEnter(){
+    this.auth.navbarAllowed = 1;
   }
 
   updatePoll(){
@@ -54,29 +71,7 @@ export class HomePage {
     });*/
   }
 
-    goToMath(){
-        this.navCtrl.push(CalculatorPage);
-    }
     
-    goToUser(){
-        this.navCtrl.push(UserPage);
-    }
-
-    library(){
-        this.navCtrl.push(LibraryPage);
-    }
-
-    goOut(){
-        this.navCtrl.push(LoginPage);
-    }
-
-    logout(){
-      localStorage.setItem("token","false");
-      this.navCtrl.setRoot(AuthenticatePage);
-      this.auth.idUsuario = "";
-      
-    }
-
     menu(encuesta_id){
         let alert = this.alertCtrl.create({
           title: '¿Qué deseas hacer?',
@@ -126,6 +121,7 @@ export class HomePage {
             {
               text: 'Aceptar',
               handler: (data:string) => {
+                this.auth.navbarAllowed = 0;
                 if (data == "0"){
                   this.navCtrl.push(SeePollPage, {encuesta_id});
                 }
@@ -163,6 +159,7 @@ export class HomePage {
           (error)=>{
           }
         )
+        this.auth.navbarAllowed = 0;
         this.navCtrl.push(CreatePage);
     }
     

@@ -1,52 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Investigación de Mercado
-    </ion-title>
-          
-      
-    <ion-buttons end class="bar-buttons">
-      <button ion-button icon-only color="royal">Mis encuestas</button>
-    </ion-buttons>
-      
-    <ion-buttons end>
-      <button ion-button (click)="goToMath()" icon-only color="royal">
-        <ion-icon name="calculator"></ion-icon>
-      </button>
-    </ion-buttons>
-      
-    <ion-buttons end>
-      <button ion-button (click)="goToUser()" icon-only color="royal">
-        <ion-icon name="contact"></ion-icon>
-      </button>
-    </ion-buttons>
-      
-    <ion-buttons end>
-      <button ion-button icon-only color="royal" (click)="library()">
-        <ion-icon name="book"></ion-icon>
-      </button>
-    </ion-buttons>
-    
-    <ion-buttons end>
-      <button ion-button icon-only color="royal" (click)="logout()">
-        <ion-icon name="log-out"></ion-icon>
-      </button>
-    </ion-buttons>
-      
-  </ion-toolbar>
-</ion-header>
+<ion-content class="other_bg" padding>
 
-<ion-content padding>
-  
-   
+    <strong>Crear nueva encuesta</strong>
 
-  <ion-fab>
-      <button ion-fab mini (click)="create()"> <ion-icon name="add"></ion-icon></button>
+    <ion-fab center>
+        <button ion-fab mini (click)="create()"> <ion-icon name="add"></ion-icon></button>
     </ion-fab>
-    <ion-item>
-        <ion-card padding class="containerEncuestas" *ngFor="let poll of resultado" (click)="menu(poll.id_encuesta)">
-            <p class="card-title">Encuesta creada el: {{poll.fecha | date:'dd/MM/yyyy'}} </p>
-        </ion-card>
-    </ion-item>
+
+
+    <ion-card class="containerEncuestas" padding *ngFor="let poll of resultado" (click)="menu(poll.id_encuesta)">
+        <p class="card-title">Encuesta creada el: {{poll.fecha | date:'dd/MM/yyyy'}} </p>
+    </ion-card>
+
+
 
 </ion-content>

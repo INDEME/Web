@@ -1,76 +1,69 @@
-.padding{
-    background-color: #DDDD;
+.toolbar-background-md {
+    background: #a80000;
 }
 
-.toolbar-background-md{
-    background: #030B26;
-}
-
-.header-container{
+.header-container {
     font-size: 2.6rem;
-    color: #0A1C28;
+    color: #a80000;
     padding: 16px;
     font-weight: 500;
+    text-align: center;
 }
 
-.container{
+.container {
     margin: auto;
-    border-radius: 2px;
-    width: 75%!important;
-    font-size: 1.4rem;
+    border-radius: 4px;
+    width: 25%!important;
+    font-size: 3rem;
     background: white;
     padding-bottom: 10px;
     margin-top: 140px;
+    align-content: center;
 }
-.toolbar-title-md{
+
+.toolbar-title-md {
     padding: 0 12px;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 500;
-    color: white;  
+    color: white;
 }
-.boton{
+
+.boton {
     margin: auto;
     display: block;
-    border: round;
-    overflow: hidden;
     height: 3.6rem;
     font-size: 1.4rem;
     font-weight: 50px;
     text-transform: uppercase;
-    color: #fff;
-    background-color: #081936;
     margin-bottom: 20px;
     margin-top: 15px;
+}
 
-}
-.itemLink{
-    background-color: #DDDD !important;
-}
-.botonLink{
+.botonLink {
     margin: auto;
     display: block;
     border-radius: 2px;
-    overflow: hidden;
     height: 3.6rem;
     font-size: 1.4rem;
     font-weight: 50px;
     text-transform: uppercase;
     color: #2E86C1;
-    background-color: #ddd;
     margin-bottom: 20px;
     margin-top: 15px;
-    border-color: #fff;
     font-size: 22px;
-    
 }
-h2{
+
+h2 {
     margin-top: 25px !important;
     font-size: 1.6rem;
     text-align: center;
 }
-.scroll-content{
-    
+
+.scroll-content {
     justify-content: center;
-    
     flex-direction: column;
+}
+
+ion-card {
+    border: 2px solid #a80000;
 }
