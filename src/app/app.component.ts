@@ -28,12 +28,14 @@ export class MyApp {
               public auth: AuthSevice
               ) {
     this.pages = [
+      { component: HomePage, icon: "home", label: "Principal"},
       { component: CalculatorPage, icon: "calculator", label: "Calculos" },
-      { component: UserPage, icon: "contact", label: "User" }
-      //{ component: LibraryPage, icon: "contact", label: "User" },
+      { component: UserPage, icon: "contact", label: "Usuario" },
+      { component: LibraryPage, icon: "book", label: "Libreria" },
     ]
     this.auth.navbarAllowed = 1;
     this.navbar = this.auth.navbarAllowed;
+  
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -52,6 +54,7 @@ logout(){
   localStorage.setItem("token","false");
   this.nav.setRoot(AuthenticatePage);
   this.auth.idUsuario = "";
+  this.auth.userAuth = false;
   
 }
 

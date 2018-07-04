@@ -1,13 +1,11 @@
-<ion-header *ngIf="auth.navbarAllowed == 1" [content]="myNav">
+<ion-header *ngIf="auth.navbarAllowed == 1 && auth.userAuth" [content]="myNav">
     <ion-toolbar>
         <ion-title>
             Investigación de Mercado
         </ion-title>
 
 
-        <ion-buttons end class="bar-buttons">
-            <button ion-button icon-only color="royal">Mis encuestas</button>
-        </ion-buttons>
+
 
 
         <ion-buttons *ngFor="let p of pages" end>
@@ -17,11 +15,7 @@
         </ion-buttons>
 
 
-        <ion-buttons end>
-            <button ion-button icon-only color="royal">
-                <ion-icon name="book"></ion-icon>
-              </button>
-        </ion-buttons>
+
 
         <ion-buttons end>
             <button ion-button icon-only color="royal" (click)="logout()">

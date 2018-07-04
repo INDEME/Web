@@ -7,15 +7,22 @@ import { Component, IonicPage, NavController, NavParams, LoginPage, HomePage, Au
 })
 export class AuthenticatePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public auth: AuthSevice) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public auth: AuthSevice,
+  
+  ) {
     
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AuthenticatePage');
+    console.log('Token:' + localStorage.getItem("token"));
     if (localStorage.getItem("token") == "true") {
-      this.navCtrl.push(HomePage);
+      this.auth.userAuth = true;
+      this.navCtrl.setRoot(HomePage);
     } else{
+      this.auth.userAuth = false;
       this.navCtrl.setRoot(LoginPage);
     }
   }

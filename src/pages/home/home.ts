@@ -45,7 +45,9 @@ export class HomePage {
     if(localStorage.getItem("token") == "false"){
       this.navCtrl.push(LoginPage);
     }
-    
+    localStorage.setItem("token", "true");
+    this.auth.userAuth = true;
+    console.log("Token: " + localStorage.getItem("token"))
     this.updatePoll();
   }
 

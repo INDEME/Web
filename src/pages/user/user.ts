@@ -24,7 +24,7 @@ export class UserPage {
   ionViewDidLoad() {
     this.datoNombre = this.auth.NombreUsuario;
     this.IdentificadorUsuario = this.auth.idUsuario;
-    this.nombreUsuario = "Hola a: "+this.datoNombre;
+    this.nombreUsuario = "Hola " + this.datoNombre;
     }
 
      goToMath(){

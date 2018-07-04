@@ -23,6 +23,7 @@ export class LoginPage {
 
   session() {
     if (this.auth.idUsuario != "") {
+      this.auth.userAuth = true;
       this.navCtrl.push(HomePage);
     } else if(this.auth.idUsuario == ""){
       this.navCtrl.push(LoginPage);

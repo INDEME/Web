@@ -1,64 +1,27 @@
-<ion-header>
-
-  <ion-toolbar>
-    <ion-title>
-      Investigación de Mercado
-    </ion-title>
-          
-      
-    <ion-buttons end>
-      <button ion-button (click)="goToHome()" icon-only color="royal">Mis encuestas</button>
-    </ion-buttons>
-      
-    <ion-buttons end>
-      <button ion-button (click)="goToMath()" icon-only color="royal">
-        <ion-icon name="calculator"></ion-icon>
-      </button>
-    </ion-buttons>
-      
-    <ion-buttons end>
-      <button ion-button icon-only color="royal">
-        <ion-icon name="contact"></ion-icon>
-      </button>
-    </ion-buttons>
-      
-    <ion-buttons end>
-        <button ion-button icon-only color="royal" (click)="library()">
-          <ion-icon name="book"></ion-icon>
-        </button>
-      </ion-buttons>
-
-      <ion-buttons end>
-        <button ion-button icon-only color="royal" (click)="logout()">
-          <ion-icon name="log-out"></ion-icon>
-        </button>
-      </ion-buttons>
-            
-      
-  </ion-toolbar>
-
-</ion-header>
+<ion-content padding class="colors_bg">
 
 
-<ion-content padding  >
-    
-  <div class="center-things">
-    <ion-icon name="contact"></ion-icon>
-    <ion-label>{{nombreUsuario}}</ion-label>
-    <h4>Cambia tu contraseña</h4>
 
-  </div>
-    <ion-list >
-      <ion-item class="item item-block ">
-        <ion-input type="password" placeholder="Contraseña nueva" [(ngModel)]="contrasena" minlength="6"></ion-input>
-      </ion-item>
+    <ion-card>
+        <ion-icon class="icon-size" name="contact"></ion-icon>
+        <ion-label class="text-size">{{nombreUsuario}}</ion-label>
 
-      <ion-item>
-        <ion-input type="password" placeholder="Confirmar contraseña" [(ngModel)]="contrasena2" minlength="6"></ion-input>
-      </ion-item>
+        <ion-list>
 
-    </ion-list>
+            <strong>Ingresa tu nueva contraseña:</strong>
+            <ion-item class="item item-block ">
+                <ion-input type="password" [(ngModel)]="contrasena" minlength="6"></ion-input>
+            </ion-item>
 
-    <button ion-button full round class="boton" (click)="edit()">Guardar</button>
+            <strong>Confirma tu nueva contraseña:</strong>
+            <ion-item>
+                <ion-input type="password" [(ngModel)]="contrasena2" minlength="6"></ion-input>
+            </ion-item>
+
+        </ion-list>
+
+        <button ion-button round class="boton" (click)="edit()">Guardar</button>
+
+    </ion-card>
 
 </ion-content>
